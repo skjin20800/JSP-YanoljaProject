@@ -1,0 +1,16 @@
+package com.jkb.yanolja.domain.motel;
+
+import java.sql.Timestamp;
+
+public class Motel {
+	private int id;
+	private int star;
+	private String motelName ;
+	private String motelPic;
+	private String motelInfo;
+	private String address;
+	private String roomPrice; // admin, user
+	private String lodgmentPrice;
+	private Timestamp createDate;
+	private Timestamp updateDate;
+}

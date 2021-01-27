@@ -1,0 +1,13 @@
+package com.jkb.yanolja.service;
+
+import com.jkb.yanolja.domain.motel.MotelDao;
+
+public class MotelService {
+
+	MotelDao motelDao= new MotelDao();
+
+	public void motelSeomyeon() {
+		motelDao.findBySeomyeon();
+		return ;
+	}
+}

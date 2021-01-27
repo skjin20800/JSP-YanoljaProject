@@ -1,0 +1,257 @@
+.section1__main{
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+.section1__list{
+    width: 770px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section1__title{
+    font-size: 20px;
+    font-weight: 800;
+    width: 770px;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.section1__info{
+    width: 770px;
+    height: 40px;
+    display: flex;
+    
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.section1__calendar{
+    display: flex;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    height: 40px;
+}
+
+.calender__position{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+.form_group_list{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.section1__info1{
+    margin-left: 10px;
+}
+
+.section1__info2{
+    margin-left: 10px;
+}
+
+.section1__hash{
+    margin-top: 30px;
+    display: flex;
+    width: 770px;
+    
+}
+
+.section1__hash button{
+    font-size: 15px;
+    font-weight: 700;
+    color:gray;
+    border: none;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.section1__hash button:focus{
+    border: 0px ;
+    outline: 0px ;
+    color:black;
+}
+.section2__main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.section2__cupon{
+    width: 770px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 12px;
+}
+
+.section2__cupon button{
+color: gray;
+border: 1px solid rgb(210, 210, 210);
+outline: 0px;
+
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 20px;
+height: 20px;
+}
+
+.section2__cupon button:focus{
+    outline: none;
+color: black;
+font-weight: 900;
+}
+
+.section3__main{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 1000px;
+    background-color: rgb(242, 242, 242);
+}
+
+.section3__center{
+    display: flex;
+    flex-direction: column;
+    width: 770px;
+    height: auto;
+}
+
+.list__title{
+    display: flex;
+    width: 770px;
+    height: 50px;
+    padding-left: 20px;
+    background-color: white;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    height: 50px;
+    color: rgb(97, 97, 97);
+}
+
+.card__grid {
+    width: 770px;
+    display: grid;
+    grid-template-columns: repeat(2,350px);
+    justify-content: start;
+    grid-row-gap: 23px;
+    grid-column-gap: 23px;
+    background-color: #002966;
+    padding-left: 23px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+
+}
+
+.card__grid a{
+    text-decoration:none ;
+    color: black;
+}
+.card__grid a:hover{
+    color: black;
+    text-decoration:none ;
+}
+
+.card__title{
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+
+.card img{
+    width: 350px;
+    height: 170px;
+}
+
+.card__text{
+    font-size: 1px;
+    margin-bottom: 0px;
+}
+
+.card__sale{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80px;
+    height: 20px;
+    font-size: 10px;
+    border: 1px solid #DE2E5F;
+    border-radius: 3px;
+}
+
+.card__sale__1{
+    background-color:#DE2E5F;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 35px;
+    color: white;
+    font-weight: 900;
+}
+
+.card__sale__2{
+    color: #DE2E5F;
+    margin-left: 3px;
+}
+
+.card__text{
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+.card__empty{
+    height: 40px;
+}
+
+.card__room{
+    width: 310px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 13px;
+}
+
+.card__room div{
+    margin-left: 5px;
+font-size: 18px;
+font-weight: 700;
+display: flex;
+align-items: center;
+}
+
+
+.card__lodgment{
+    width: 310px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+    font-size: 13px;
+}
+
+.card__lodgment div{
+    margin-left: 5px;
+font-size: 18px;
+font-weight: 700;
+display: flex;
+align-items: center;
+}

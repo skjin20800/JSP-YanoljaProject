@@ -1,0 +1,13 @@
+package com.jkb.yanolja.domain.user.dto;
+
+import lombok.Data;
+
+public class usernameCheckDto {
+
+	@Data
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		private String username;
+	}
+
+}

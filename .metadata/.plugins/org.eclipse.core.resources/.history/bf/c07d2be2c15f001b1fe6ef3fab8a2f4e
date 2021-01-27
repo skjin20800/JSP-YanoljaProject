@@ -1,0 +1,24 @@
+package com.jkb.yanolja.service;
+
+import com.jkb.yanolja.domain.user.User;
+import com.jkb.yanolja.domain.user.UserDao;
+import com.jkb.yanolja.domain.user.dto.JoinReqDto;
+import com.jkb.yanolja.domain.user.dto.LoginReqDto;
+
+public class UserService {
+
+	UserDao userdao= new UserDao();
+
+	public int 회원가입(JoinReqDto dto) {
+		return userdao.save(dto);
+	}
+
+	public User 로그인(LoginReqDto dto) {
+		return null;
+	}
+
+	public int 아이디중복체크(String username) {
+
+		return -1;
+	}
+}

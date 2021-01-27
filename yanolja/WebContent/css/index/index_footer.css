@@ -1,0 +1,144 @@
+
+.footer{
+    display: flex;
+    background-color: rgb(242, 242, 242);
+    width: 100%;
+    height: 450px;
+    justify-content: space-between;
+}
+
+.footer__main__center{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 750px;
+    height: 500px;
+}
+
+.footer__top{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    width: 750px;
+    height: 45px;
+}
+
+.footer__center1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    width: 750px;
+    height: 45px;
+    color: rgb(145, 145, 145);
+}
+
+.footer__left{
+    font-size: 25px;
+    font-weight: 700;
+
+}
+
+.footer__right{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-right: 20px;
+    background-color: white;
+    border: 1px solid rgb(230, 230, 230);
+    width: 220px;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.footer__info{
+    display: flex;
+    
+    width: 100%;
+    flex-direction: column;
+    padding-left: 10px;
+    color: rgb(145, 145, 145);
+    font-size: 11px;
+}
+
+.footer__buuton{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 11px;
+}
+
+.footer__buuton button{
+    color: rgb(145, 145, 145);
+    height: 22px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid rgb(145, 145, 145);
+
+}
+
+.footer__empty{
+    width: 40px;
+}
+
+.footer__buuton button:focus{
+    border: 0;
+    outline: none;
+    border: 1px solid rgb(145, 145, 145);    
+}
+
+.footer_icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+}
+
+.footer_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 240px;
+    height: 45px;
+}
+
+
+.footer_icon div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 40px;
+}
+
+.footer_icon img{
+    
+    height: 30px;
+    width: 240px;
+    
+}
+
+.footer__center__last{
+    display: flex;
+    width: 100%;
+    padding-left: 10px;
+    color: rgb(145, 145, 145);
+    font-size: 11px;
+
+}
+
+.footer__bottom{
+    border-top: 1px solid rgb(210, 210, 210);
+    margin-top: 10px;
+    width: 100%;
+}
+
+.footer__bottom img{
+    width: 750px;
+}

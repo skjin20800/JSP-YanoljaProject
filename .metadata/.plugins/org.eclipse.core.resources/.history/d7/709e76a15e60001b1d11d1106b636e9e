@@ -1,0 +1,40 @@
+package com.jkb.yanolja.web;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.annotation.WebServlet;
+
+import com.jkb.yanolja.anno.RequestMapping;
+import com.jkb.yanolja.domain.user.dto.JoinReqDto;
+import com.jkb.yanolja.domain.user.dto.LoginReqDto;
+import com.jkb.yanolja.service.MotelService;
+import com.jkb.yanolja.service.UserService;
+
+@WebServlet("/user")
+public class MotelController {
+	
+MotelService motelService = new MotelService();
+List<Object> respList = new ArrayList<>();
+	
+    public MotelController() {
+        super();
+    }
+    
+	@RequestMapping("/motelArea")
+	public List<Object> motelArea() {	
+		respList.add("/motelArea.jsp");
+		return respList;
+	}
+	
+	@RequestMapping("/motelList_Seomyeon")
+	public List<Object> motelList() {	
+		respList.add("/motelList.jsp");
+		
+		return respList;
+	}
+	
+
+
+
+}

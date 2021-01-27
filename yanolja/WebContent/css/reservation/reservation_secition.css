@@ -1,0 +1,159 @@
+.section__main{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    background-color: rgb(242, 242, 242);
+}
+
+.section__center{
+
+    display: flex;
+    flex-direction: column;
+    width: 770px;
+    height: auto;
+}
+
+.section1__main{
+    padding-top: 40px;
+    
+    display: flex;
+    width: 770px;
+    height: 260px;
+    background-color: white;
+    flex-direction: column;
+}
+
+.motel__title{
+    padding-left: 20px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.motel__subtitle{
+    padding-left: 20px;
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.motel__datecheck{
+    display: flex;
+    justify-content: space-between;
+    width: 770px;
+    height: 130px;
+    
+    align-items: center;
+    border-top: 2px solid rgb(210,210,210);
+    border-bottom: 2px solid rgb(210,210,210);
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.date__second{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10px;
+    
+    font-size: 40px;
+    width: 55px;
+    height: 60px;
+}
+
+
+
+.nomargin{
+    margin: 0px !important;
+}
+
+.check__in{
+    width: 330px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.in_1{
+    color: gray;
+}
+
+.in_2{
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.check__out{
+    
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+.out_1{
+    color: gray;
+}
+
+.out_2{
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.in__size{
+    width: 300px;
+}
+
+.out__size{
+    width: 300px;
+}
+
+.reservation__info{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 770px;
+    height: 900px;
+    background-color: white;
+}
+
+.res__title{
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.res__usernameInfo{
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.res__Info__input{
+    padding-top: 20px;
+    
+}
+
+.res__input{
+    font-size: 17px;
+    width: 600px;
+    border: none;
+    border-bottom: 2px solid rgb(210,210,210);
+    
+}
+
+.res__usernametitle{
+    margin-top: 20px;
+    font-size: 13px;
+    color: gray;
+}
+
+.res__Info__select{
+    width: 600px;
+    display: flex;
+}
+
+.res__btn{
+ width: 730px !important;
+}

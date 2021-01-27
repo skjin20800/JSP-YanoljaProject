@@ -1,0 +1,21 @@
+package com.jkb.yanolja.service;
+
+import java.util.List;
+
+import com.jkb.yanolja.domain.motel.Motel;
+import com.jkb.yanolja.domain.motel.MotelDao;
+
+public class MotelService {
+
+	MotelDao motelDao= new MotelDao();
+
+	public List<Motel> motelSeomyeon() {
+		
+		return motelDao.findBySeomyeon();
+	}
+	
+	public List<Motel> motelGangnam() {
+		
+		return motelDao.findByGangnam();
+	}
+}

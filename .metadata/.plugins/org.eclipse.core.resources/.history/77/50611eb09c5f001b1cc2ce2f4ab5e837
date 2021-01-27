@@ -1,0 +1,5 @@
+package com.jkb.yanolja.service;
+
+public class UserService {
+
+}

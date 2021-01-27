@@ -1,0 +1,5 @@
+package com.jkb.yanolja.domain.user.dto;
+
+public class JoinReqDto {
+
+}
