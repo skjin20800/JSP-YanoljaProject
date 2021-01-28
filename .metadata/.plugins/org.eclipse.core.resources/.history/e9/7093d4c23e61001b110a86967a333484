@@ -1,0 +1,38 @@
+package com.jkb.yanolja.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jkb.yanolja.domain.motel.Motel;
+import com.jkb.yanolja.domain.motel.MotelDao;
+import com.jkb.yanolja.domain.motel.dto.MotelDetailDto;
+
+public class MotelService<T> {
+
+	MotelDao motelDao= new MotelDao();
+	
+	List<T> list = new ArrayList<>();
+
+	public List<Motel> motelSeomyeon() {
+		
+		return motelDao.findBySeomyeon();
+	}
+	
+	public List<Motel> motelGangnam() {
+		
+		return motelDao.findByGangnam();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<T> motelDetail(MotelDetailDto dto) {
+		String check[] = {dto.getCheckin().toString(), dto.getCheckout().toString()};
+		System.out.println("쳌크1"+dto.getCheckin());
+		System.out.println("쳌크2"+check[0]);
+		System.out.println("쳌크3"+dto.getCheckin().toString());
+		
+		list.add((T) motelDao.findBymotelId(dto));
+		list.add((T) motelDao.findBymotelType(dto));
+		list.add((T) check);
+		return list;
+	}
+}

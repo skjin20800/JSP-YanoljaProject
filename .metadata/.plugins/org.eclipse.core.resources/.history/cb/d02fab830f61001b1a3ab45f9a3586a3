@@ -1,0 +1,13 @@
+package com.jkb.yanolja.domain.motel.dto;
+
+import java.sql.Timestamp;
+
+import lombok.Data;
+
+@Data
+public class MotelDetailDto {
+String motelId;
+Object checkin;
+Object checkin1;
+Object checkout;
+}

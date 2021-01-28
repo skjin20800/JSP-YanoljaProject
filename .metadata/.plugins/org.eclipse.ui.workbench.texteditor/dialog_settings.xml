@@ -5,13 +5,19 @@
 		<item key="DIALOG_Y_ORIGIN" value="403"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="border-radius"/>
+		<item key="selection" value="card__text"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="card__text"/>
+			<item value="card__test"/>
+			<item value="btn__card"/>
+			<item value="card__grid"/>
+			<item value="motelId"/>
+			<item value="carousel-item"/>
 			<item value="border-radius"/>
 			<item value="radi"/>
 			<item value="border"/>
@@ -21,11 +27,6 @@
 			<item value="motelList"/>
 			<item value="img"/>
 			<item value="host app"/>
-			<item value="host"/>
-			<item value="csstest"/>
-			<item value="css"/>
-			<item value="test"/>
-			<item value="test/css"/>
 		</list>
 		<list key="replacehistory">
 		</list>

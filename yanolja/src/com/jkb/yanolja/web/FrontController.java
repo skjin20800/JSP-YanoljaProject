@@ -13,49 +13,56 @@ import com.jkb.yanolja.service.MotelService;
 import com.jkb.yanolja.service.UserService;
 
 @WebServlet("/user")
-public class FrontController {
+public class FrontController<T> {
 	
 UserService userService = new UserService();
 MotelService motelService = new MotelService();
-List<Object> respList = new ArrayList<>();
+List<T> respList = new ArrayList<>();
 	
     public FrontController() {
         super();
     }
     
+    @SuppressWarnings("unchecked")
 	@RequestMapping("/index")
-	public List<Object> index() {
-		respList.add("/index.jsp");
+	public List<T> index() {
+		respList.add((T) "/index.jsp");
 		respList.add(null);
 		return respList;
 	}
     
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/join")
-	public List<Object> join() {
-		respList.add("/userjoin.jsp");
+	public List<T> join() {
+		respList.add((T) "/userjoin.jsp");
 		respList.add(null);
 		return respList;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/joinReq")
-	public List<Object> join(JoinReqDto dto) {
-		respList.add("/index.jsp");
-		respList.add(userService.회원가입(dto));
+	public List<T> join(JoinReqDto dto) {
+		userService.회원가입(dto);
+		respList.add((T) "/index.jsp");
+		respList.add(null);
+		
 		return respList;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/login")
-	public List<Object> login() {
-		respList.add("/userlogin.jsp");
+	public List<T> login() {
+		respList.add((T) "/userlogin.jsp");
 		respList.add(null);
 		return respList;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/loginReq")
-	public List<Object> loginReq(LoginReqDto dto) {	
-		respList.add("/index.jsp");
-		respList.add(userService.로그인(dto));
+	public List<T> loginReq(LoginReqDto dto) {	
+		respList.add((T) "/index.jsp");
+		respList.add((T) userService.로그인(dto));
 		return respList;
 	}
 	
@@ -70,32 +77,37 @@ List<Object> respList = new ArrayList<>();
 	}
 	
 	@RequestMapping("/motelArea")
-	public List<Object> motelArea() {	
-		respList.add("/motelArea.jsp");
+	public List<T> motelArea() {	
+		respList.add((T) "/motelArea.jsp");
 		respList.add(null);
 		return respList;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/motelList_Seomyeon")
-	public List<Object> motelList_Seomyeon() {	
-		respList.add("/motelList.jsp");
-		respList.add(motelService.motelSeomyeon());
+	public List<T> motelList_Seomyeon() {	
+		respList.add((T) "/motelList.jsp");
+		respList.add((T) motelService.motelSeomyeon());
 		return respList;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/motelList_Gangnam")
-	public List<Object> motelList_Gangnam() {	
-		respList.add("/motelList.jsp");
-		respList.add(motelService.motelGangnam());
+	public List<T> motelList_Gangnam() {	
+		respList.add((T) "/motelList.jsp");
+		respList.add((T) motelService.motelGangnam());
 		return respList;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/motelDetail")
-	public List<Object> motasdf(MotelDetailDto dto) {
-		System.out.println("실행됨니당 모텔디테일");
-		System.out.println(dto.toString());
-		respList.add("/motelInfo.jsp");
-		respList.add(motelService.motelGangnam());
+	public List<T> motelDetail(MotelDetailDto dto) {
+//		System.out.println(dto.toString());
+
+		respList.add((T) "/motelInfo.jsp");
+		respList.add((T) motelService.motelDetail(dto));
+		respList.add(null);
+		System.out.println(respList.get(1));
 		return respList ;
 	}
 	

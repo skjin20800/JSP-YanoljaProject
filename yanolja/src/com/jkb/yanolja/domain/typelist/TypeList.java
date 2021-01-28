@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class TypeList {
 	private int id;
 	private int motelId;
-	private String roompic;
+	private String roomPic;
 	private String roomType;
 	private String roomPrice;
 	private String lodgmentPrice;

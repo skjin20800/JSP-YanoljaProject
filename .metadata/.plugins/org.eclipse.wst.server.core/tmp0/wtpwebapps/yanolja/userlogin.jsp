@@ -16,7 +16,7 @@
             </div>
     
             <div class="form-group">
-                <input type="password" name="password"  class="form-control" placeholder="Enter Password"  required/>
+                <input type="password" name="password"  class="form-control" placeholder="Enter Password"   required/>
             </div>
     
             <br/>

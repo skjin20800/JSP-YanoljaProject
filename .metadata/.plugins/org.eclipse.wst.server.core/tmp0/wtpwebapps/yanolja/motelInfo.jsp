@@ -11,31 +11,16 @@
     <%@ include file="header/header.jsp" %>
     <section>
         <div class="section1__main">
-            <div>1</div>
+            <div></div>
             <div class="section1__center">
                 <!--사진-->
                 <div>
+                    <div id="demo" class="carousel slide carousel__slide" data-ride="carousel">
 
-                    <div id="demo" class="carousel slide" data-ride="carousel">
-
-                        <!-- Indicators -->
-                        <ul class="carousel-indicators">
-                            <li data-target="#demo" data-slide-to="0" class="active"></li>
-                            <li data-target="#demo" data-slide-to="1"></li>
-                            <li data-target="#demo" data-slide-to="2"></li>
-                        </ul>
 
                         <!-- The slideshow -->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/index/banner4_busan1.png" alt="룸 사진1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/index/banner4_busan2.png" alt="룸 사진2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/index/banner4_busan4.png" alt="룸 사진3">
-                            </div>
+                        <div class="carousel-inner carousel_border">
+                          
                         </div>
 
                         <!-- Left and right controls -->
@@ -48,9 +33,9 @@
                     </div>
                 </div>
                 <!--사진 끝-->
-                <div class="motel__name"> 모텔 명</div>
-                <div class="motel__star">⭐<strong>평점 변수</strong>/5</div>
-                <div class="motel__coupon">무한쿠폰룸</div>
+                <div class="motel__name"> ${data[0].motelName} </div>
+                <div class="motel__star">⭐<strong>${data[0].star}</strong>/5</div>
+                <div class="motel__coupon">${data[0].motelInfo}</div>
                 <!--캘린더-->
                 <div class="calender__main">
                     <div class="calender__info1">
@@ -80,25 +65,7 @@
                 </div>
                 <!--캘린더 끝-->
                 <!--카드시작-->
-                <div>
-
-                    <div class="card card__body">
-                        <a class="card__link" href="#">
-                            <div class="card__position ">
-                                <img class="card-img-top" src="images/index/banner4_gangwon4.png" alt="Card image">
-                                <div class="card-body card__body2">
-                                    <h4 class="card-title">룸타입명</h4>
-                                    <p class="card-text">타입설명</p>
-                                    <div class="room__kinds">대실</div>
-                                    <div class="room__price">판매가</div>
-                                    <div class="room__won"><strong>30,000</strong>원</div>
-                                    <div class="room__kinds">숙박</div>
-                                    <div class="room__price">판매가</div>
-                                    <div class="room__won"><strong>45,000</strong>원</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class=card__grid>
 
                 </div>
                 <!--카드끝-->
@@ -108,9 +75,37 @@
             <div></div>
         </div>
     </section>
+<script type="text/javascript">
 
-    <script src="javascript/motelInfo.js">
+var arrPic= new Array();
+
+<c:forEach items="${data[0].motelInfoPic}" var="item">
+arrPic.push({
+	motelInfoPic:"${item}",
+	});
+	
+</c:forEach>
+
+
+var arr= new Array();
+
+ <c:forEach items="${data[1]}" var="item">
+ arr.push({
+	roomPic:"${item.roomPic}",
+ 	roomType:"${item.roomType}",
+ 	roomPrice:"${item.roomPrice}",
+ 	lodgmentPrice:"${item.lodgmentPrice}"
+ 	});
+ </c:forEach>
+ 
+  var checkIn = "${data[2][0]}";
+  var checkOut = "${data[2][1]}";
+ 
+</script>
+ <script src="javascript/motelInfo.js">
     </script>
+
+    
 </body>
 
 </html>

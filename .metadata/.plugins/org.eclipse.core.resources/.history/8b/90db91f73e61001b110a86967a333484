@@ -1,0 +1,112 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모텔 정보</title>
+    <link rel="stylesheet" href="css/motelInfo/motelInfo_style.css" />
+    <%@ include file="header/header.jsp" %>
+    <section>
+        <div class="section1__main">
+            <div>1</div>
+            <div class="section1__center">
+                <!--사진-->
+                <div>
+                    <div id="demo" class="carousel slide carousel__slide" data-ride="carousel">
+
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner carousel_border">
+                          
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+                <!--사진 끝-->
+                <div class="motel__name"> ${data[0].motelName}</div>
+                <div class="motel__star">⭐<strong>${data[0].star}</strong>/5</div>
+                <div class="motel__coupon">${data[0].motelInfo}</div>
+                <!--캘린더-->
+                <div class="calender__main">
+                    <div class="calender__info1">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker7A" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"
+                                    data-target="#datetimepicker7A" placeholder="체크인 날짜" />
+                                <div class="input-group-append" data-target="#datetimepicker7A"
+                                    data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calender__info2">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker8A" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"
+                                    data-target="#datetimepicker8A" placeholder="체크아웃 날짜" />
+                                <div class="input-group-append" data-target="#datetimepicker8A"
+                                    data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--캘린더 끝-->
+                <!--카드시작-->
+                <div class=card__grid>
+
+                </div>
+                <!--카드끝-->
+                <div><img src="images/motelInfo/motelInfo1.png" width="770px" height="420px" /></div>
+                <div><img src="images/motelInfo/motelInfo2.png" width="770px" height="300px" /></div>
+            </div>
+            <div></div>
+        </div>
+    </section>
+<script type="text/javascript">
+
+var arrPic= new Array();
+
+<c:forEach items="${data[0].motelInfoPic}" var="item">
+arrPic.push({
+	motelInfoPic:"${item}",
+	});
+	
+</c:forEach>
+
+
+var arr= new Array();
+
+ <c:forEach items="${data[1]}" var="item">
+ arr.push({
+	roomPic:"${item.roomPic}",
+ 	roomType:"${item.roomType}",
+ 	roomPrice:"${item.roomPrice}",
+ 	lodgmentPrice:"${item.lodgmentPrice}"
+ 	});
+ </c:forEach>
+ 
+ var checkIn = "${data[3].check[0]}";
+ var checkOut = "${data[3].check[1]}";
+ console.log(checkIn + checkOut);
+ 
+</script>
+ <script src="javascript/motelInfo.js">
+    </script>
+
+    
+</body>
+
+</html>

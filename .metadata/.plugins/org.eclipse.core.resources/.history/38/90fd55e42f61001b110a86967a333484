@@ -1,0 +1,61 @@
+
+ addDiv2();
+
+ $(function () {
+     $('#datetimepicker7A').datetimepicker({
+             format: 'L',    
+         });
+     $('#datetimepicker8A').datetimepicker({
+             format: 'L',
+         useCurrent: false
+     });
+
+     $("#datetimepicker7A").on("change.datetimepicker", function (e) {
+         $('#datetimepicker8A').datetimepicker('minDate', e.date);
+     });
+
+     $("#datetimepicker8A").on("change.datetimepicker", function (e) {
+         $('#datetimepicker7A').datetimepicker('maxDate', e.date);
+     });
+
+ });
+
+
+
+
+
+ function addDiv2(){
+      var cardGrid = $(".card__grid")[0];
+    
+      for(var i = 0; i<arr.length; i++){
+
+		var roomPic = arr[i].roomPic;
+        var roomType = arr[i].roomType;
+		var roomPrice = arr[i].roomPrice;
+		var lodgmentPrice = arr[i].lodgmentPrice;
+
+        var newDiv = document.createElement("div");
+        
+
+		var cardDetail = `<button class="btn__card btn-default" type ="submit" onclick="motel(${id})">`;
+        cardDetail += `<div><div class="card card__body">`;
+		cardDetail += `<img class="card-img-top" src="${roomPic}" alt="Card image">`;
+		cardDetail += `<div class="card-body card__body2">`;
+		cardDetail += `<h4 class="card-title">${roomType}</h4>`;
+		cardDetail += `<p class="card-text"></p>`;
+		cardDetail += `<div class="room__kinds">대실</div>`;
+		cardDetail += `<div class="room__price">판매가</div>`;
+		cardDetail += `<div class="room__won"><strong>${roomPrice}</strong>원</div>`;
+		cardDetail += `<div class="room__kinds">숙박</div>`;
+		cardDetail += `<div class="room__price">판매가</div>`;
+		cardDetail += `<div class="room__won"><strong>${lodgmentPrice}</strong>원</div>`;
+		cardDetail += `</div></div></div></div></button>`;
+        newDiv.innerHTML = cardDetail;
+
+
+         cardGrid.append(newDiv);
+
+
+        
+      }
+    }

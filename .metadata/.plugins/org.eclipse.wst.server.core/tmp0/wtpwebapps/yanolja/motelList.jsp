@@ -12,16 +12,19 @@
     <%@ include file="header/header.jsp" %>
     
     <section>
+    <form action="/yanolja/motelDetail" method="post" id="calendar_1" >
+    <input type="hidden" value="0" name="motelId" id="motelId" />
         <div class="section1__main ">
             <div></div>
             <div class="section1__list">
                 <div class="section1__title ">변수/서면/양정/초읍/부산/시민공원</div>
                 <div class="section1__info mt10 ">
                     <!--캘린더-->     
+                    
                     <div class="section1__info1">
                             <div class="form-group form_group_list">
                                <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7" placeholder="체크인 날짜"/>    
+                               <input type="text" name="checkin"  class="form-control datetimepicker-input" data-target="#datetimepicker7" placeholder="체크인 날짜"/>    
                                     <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
@@ -31,13 +34,14 @@
                         <div class="section1__info2">
                             <div class="form-group form_group_list">
                                <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8" placeholder="체크아웃 날짜"/>
+                                    <input type="text"  name="checkout"  id="checkout"  class="form-control datetimepicker-input" data-target="#datetimepicker8" placeholder="체크아웃 날짜"/>
                                     <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                      
                     <!--캘린더끝-->
                 </div>
                 <div class="section1__hash">
@@ -92,6 +96,7 @@
             </div>
             <div></div>
         </div>
+          </form>
     </section>
 <script type="text/javascript">
 var arr= new Array();
@@ -106,6 +111,11 @@ var arr= new Array();
  	star:"${item.star}",
  	});
  </c:forEach>
+ 
+ function motel(id) {
+		document.getElementById("motelId").value = id;
+		};	  
+
 </script>
 
     <script src="javascript/motelList.js">    

@@ -16,6 +16,7 @@ public class Motel {
 	
 	private String motelName ;
 	private String motelPic;
+	private String[] motelInfoPic;
 	private String motelInfo;
 	private String address;
 	private String roomPrice; // admin, user

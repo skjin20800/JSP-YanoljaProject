@@ -1,0 +1,34 @@
+package com.jkb.yanolja.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jkb.yanolja.domain.motel.Motel;
+import com.jkb.yanolja.domain.motel.MotelDao;
+import com.jkb.yanolja.domain.motel.dto.MotelDetailDto;
+
+public class MotelService<T> {
+
+	MotelDao motelDao= new MotelDao();
+	
+	List<T> list = new ArrayList<>();
+
+	public List<Motel> motelSeomyeon() {
+		
+		return motelDao.findBySeomyeon();
+	}
+	
+	public List<Motel> motelGangnam() {
+		
+		return motelDao.findByGangnam();
+	}
+	
+	public List<T> motelDetail(MotelDetailDto dto) {
+		
+		list.add((T) motelDao.findBymotelId(dto));
+		System.out.println("service_motel"+list.get(0));
+		list.add((T) motelDao.findBymotelType(dto));
+		System.out.println("service_typelist"+list.get(1));		
+		return list;
+	}
+}

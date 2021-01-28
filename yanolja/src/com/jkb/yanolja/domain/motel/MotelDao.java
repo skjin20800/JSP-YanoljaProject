@@ -8,47 +8,95 @@ import java.util.List;
 
 import com.jkb.yanolja.domain.config.DBConnection;
 import com.jkb.yanolja.domain.motel.dto.MotelDetailDto;
-import com.jkb.yanolja.domain.user.User;
-import com.jkb.yanolja.domain.user.dto.LoginReqDto;
+import com.jkb.yanolja.domain.typelist.TypeList;
 
 public class MotelDao {
 	
 	
 	
-//	public Motel findBymotelId(MotelDetailDto dto) {
-//		String sql = "SELECT id, username, password, phone, email, userRole, createDate, updateDate FROM user WHERE username = ? AND password = ?";
-//		Connection conn = DBConnection.getInstance();
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, dto.getUsername());
-//			pstmt.setString(2, dto.getPassword());
-//			rs = pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				User user = User.builder()
-//						.id(rs.getInt("id"))
-//				.username(rs.getString("username"))
-//				.password(rs.getString("password"))
-//				.phone(rs.getString("phone"))
-//				.email(rs.getString("email"))
-//				.userRole(rs.getString("userRole"))
-//				.createDate(rs.getTimestamp("createDate"))
-//				.updateDate(rs.getTimestamp("updateDate"))
-//				.build();
-//						System.out.println("로그인 성공");
-//				return user;
-//			}
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}finally {
-//			DBConnection.close(conn,pstmt,rs);
-//		}
-//		
-//		return null;
-//	}
+	
+	public Motel findBymotelId(MotelDetailDto dto) {
+		String sql = "select id, motelName, motelPic, motelInfoPic ,motelInfo,address,roomPrice,lodgmentPrice,star from motel WHERE id = ?";
+		Connection conn = DBConnection.getInstance();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getMotelId());
+			rs = pstmt.executeQuery();
+			
+			
+			if(rs.next()) {
+				String motelInfoList = rs.getString("motelInfoPic");
+				String []motelInfoSplit = motelInfoList.split(",");
+				
+				Motel motel = Motel.builder()
+						.id(rs.getInt("id"))
+						.motelName(rs.getString("motelName"))
+						.motelPic(rs.getString("motelPic"))
+						.motelInfo(rs.getString("motelInfo"))
+						.motelInfoPic(motelInfoSplit)
+						.address(rs.getString("address"))
+						.roomPrice(rs.getString("roomPrice"))
+						.lodgmentPrice(rs.getString("lodgmentPrice"))
+						.star(rs.getString("star"))
+						.build();			
+				
+				return motel;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConnection.close(conn,pstmt,rs);
+		}
+		
+		return null;
+	}
+	
+	
+	public List<TypeList> findBymotelType(MotelDetailDto dto) {
+		StringBuffer sb = new StringBuffer(); // String전용 컬렉션(수집)이다, 동기화되어있음,
+		  
+		sb.append("SELECT  DISTINCT roomType, roomPic, roomPrice, lodgmentPrice ");
+		sb.append("FROM typelist ");
+		sb.append("WHERE checkIn <= ? AND reservation = 'false' AND motelId = ? ");
+		String sql = sb.toString();	
+		Connection conn = DBConnection.getInstance();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<TypeList> typeList = new ArrayList<>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			String []checkinSplit = dto.getCheckin().toString().split("/");
+			String checkin = checkinSplit[2]+"-"+checkinSplit[0]+"-"+checkinSplit[1];
+			System.out.println("이놈입니다" +checkin);
+			
+			pstmt.setString(1, checkin);
+			pstmt.setString(2, dto.getMotelId());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				TypeList type = TypeList.builder()
+						.roomPic(rs.getString("roomPic"))
+						.roomType(rs.getString("roomType"))
+						.roomPrice(rs.getString("roomPrice"))
+						.lodgmentPrice(rs.getString("lodgmentPrice"))
+						.build();				
+				typeList.add(type);
+			}
+			
+			return typeList;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConnection.close(conn,pstmt,rs);
+		}
+		
+		return null;
+	}
 
 
 	

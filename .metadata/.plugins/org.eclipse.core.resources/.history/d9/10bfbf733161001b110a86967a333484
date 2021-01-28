@@ -1,0 +1,103 @@
+.section1__main{
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: rgb(242  , 242, 242);
+}
+
+.section1__center{
+    width: 770px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.carousel-inner img {
+    width: 770px;
+    height: 460px;
+  }
+
+  .motel__name{
+      padding-top: 10px;
+      padding-left: 20px;
+      font-size: 30px;
+      font-weight: 700;
+  }
+
+  .motel__star{
+    padding-left: 20px;
+  }
+
+  .motel__coupon{
+      padding-left: 20px;
+      font-size: 13px;
+      color: gray;
+  }
+
+  .calender__main{
+      margin-top: 10px;
+      margin-left: 20px;
+      display: flex;
+      justify-content: flex-start;
+  }
+
+  .calender__info2{
+      margin-left: 10px;
+  }
+
+
+  .card__body{
+      background-color: white !important;
+      border: none !important;
+  }
+  .card__position{
+      width: 740px;
+      height: 210px;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 20px;
+  }
+
+  .card__position img{
+      width: 280px;
+      height: 200px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.room__kinds{
+    display: flex;
+    font-size: 15px;
+}
+
+.room__price{
+    width: 450px;
+    font-size: 10px;
+    color: gray;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.room__won{
+    width: 450px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.card__body2{
+    padding-top: 0px !important;
+}
+
+.card__link{
+    text-decoration:none ;
+    color: black;
+}
+.card__link:hover{
+    color: black;
+    text-decoration:none ;
+}

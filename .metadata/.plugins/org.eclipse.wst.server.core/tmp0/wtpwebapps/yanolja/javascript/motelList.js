@@ -5,14 +5,31 @@ window.onload=function(){
 
  $(function () {
 
+var today = new Date();
+
+var yyyy = today.getFullYear();
+var mm = today.getMonth()+1;
+var dd = today.getDate();
+
+
+if(dd<10) {
+    dd='0'+dd
+} 
+if(mm<10) {
+    mm='0'+mm
+} 
+var todayTime = mm+'/' + dd+'/'+yyyy;
+
      $('#datetimepicker7').datetimepicker({
-        language : 'ko',
              format: 'L',
-             
+defaultDate: todayTime,
          });
+
+
      $('#datetimepicker8').datetimepicker({
              format: 'L',
-             language: 'ko',
+defaultDate: todayTime,
+             
          useCurrent: false
          
      });
@@ -40,18 +57,13 @@ window.onload=function(){
 		var roomPrice = arr[i].roomPrice;
 		var lodgmentPrice = arr[i].lodgmentPrice;
 		var star = arr[i].star;     
-		console.log(motelName);
-		console.log(arr[i].motelName);
-		console.log(`아니 왜안먹음 ${motelName}, 아니왜`);
 
         var newDiv = document.createElement("div");
         newDiv.id = "motelList-"+id;
 
-     
-
-        var cardDetail = `<form action="/yanolja/motelDetail" method="post" id="${newDiv.id}" >`;
-        cardDetail += `<input type="hidden" name="motelId" id="motedId" value="${id}"/>`;
-		cardDetail += `<button class="btn__card btn-default" type ="submit">`;
+        
+        
+		var cardDetail = `<button class="btn__card btn-default" type ="submit" onclick="motel(${id})">`;
         cardDetail += `<div class="card">`;
 		cardDetail += `<img class="card-img-top" src="${motelPic}" alt="Card image"/>`;
 		cardDetail += `<div class="card-body">`;
@@ -65,14 +77,19 @@ window.onload=function(){
 		cardDetail += `<div class="card__empty"></div>`;
 		cardDetail += `<div class="card__room ">대실 <div><strong>${roomPrice}</strong>원</div></div>`;
 		cardDetail += `<div class="card__lodgment ">숙박 <div><strong>${lodgmentPrice}</strong>원</div></div>`;
-		cardDetail += `</div></div></button></form>`;
+		cardDetail += `</div></div></button>`;
         newDiv.innerHTML = cardDetail;
         // http://113.198.238.82:8000/api/movie/1 삭제  
 
          cardGrid.append(newDiv);
+
+
         
       }
     }
+
+        
+
  
 
  

@@ -1,0 +1,112 @@
+package com.jkb.yanolja.web;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.annotation.WebServlet;
+
+import com.jkb.yanolja.anno.RequestMapping;
+import com.jkb.yanolja.domain.motel.dto.MotelDetailDto;
+import com.jkb.yanolja.domain.user.dto.JoinReqDto;
+import com.jkb.yanolja.domain.user.dto.LoginReqDto;
+import com.jkb.yanolja.service.MotelService;
+import com.jkb.yanolja.service.UserService;
+
+@WebServlet("/user")
+public class FrontController<T> {
+	
+UserService userService = new UserService();
+MotelService motelService = new MotelService();
+List<T> respList = new ArrayList<>();
+	
+    public FrontController() {
+        super();
+    }
+    
+	@RequestMapping("/index")
+	public List<T> index() {
+		respList.add((T) "/index.jsp");
+		respList.add(null);
+		return respList;
+	}
+    
+
+	@RequestMapping("/join")
+	public List<T> join() {
+		respList.add((T) "/userjoin.jsp");
+		respList.add(null);
+		return respList;
+	}
+	
+	@RequestMapping("/joinReq")
+	public List<T> join(JoinReqDto dto) {
+		userService.회원가입(dto);
+		respList.add((T) "/index.jsp");
+		respList.add(null);
+		
+		return respList;
+	}
+	
+	@RequestMapping("/login")
+	public List<T> login() {
+		respList.add((T) "/userlogin.jsp");
+		respList.add(null);
+		return respList;
+	}
+	
+	@RequestMapping("/loginReq")
+	public List<T> loginReq(LoginReqDto dto) {	
+		userService.로그인(dto);
+		respList.add((T) "/index.jsp");
+		respList.add(null);
+		
+		return respList;
+	}
+	
+	@RequestMapping("/user")
+	public void user() {
+		System.out.println("user() 함수 호출됨");
+	}
+	
+	@RequestMapping("/usernameCheck")
+	public int usernameCheck(String username) {
+		return userService.아이디중복체크(username);
+	}
+	
+	@RequestMapping("/motelArea")
+	public List<T> motelArea() {	
+		respList.add((T) "/motelArea.jsp");
+		respList.add(null);
+		return respList;
+	}
+	
+	@RequestMapping("/motelList_Seomyeon")
+	public List<T> motelList_Seomyeon() {	
+		respList.add((T) "/motelList.jsp");
+		respList.add((T) motelService.motelSeomyeon());
+		return respList;
+	}
+	
+	@RequestMapping("/motelList_Gangnam")
+	public List<T> motelList_Gangnam() {	
+		respList.add((T) "/motelList.jsp");
+		respList.add((T) motelService.motelGangnam());
+		return respList;
+	}
+	
+	@RequestMapping("/motelDetail")
+	public List<T> motasdf(MotelDetailDto dto) {
+		System.out.println(dto.toString());
+		respList.add((T) "/motelInfo.jsp");
+		respList.add(motelService.motelDetail(dto));
+		return respList ;
+	}
+	
+	
+	
+	
+	
+
+
+
+}

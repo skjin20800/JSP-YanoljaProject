@@ -1,13 +1,17 @@
 package com.jkb.yanolja.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.jkb.yanolja.domain.motel.Motel;
 import com.jkb.yanolja.domain.motel.MotelDao;
+import com.jkb.yanolja.domain.motel.dto.MotelDetailDto;
 
-public class MotelService {
+public class MotelService<T> {
 
 	MotelDao motelDao= new MotelDao();
+	
+	List<T> list = new ArrayList<>();
 
 	public List<Motel> motelSeomyeon() {
 		
@@ -19,8 +23,15 @@ public class MotelService {
 		return motelDao.findByGangnam();
 	}
 	
-	public List<Motel> motelDetail() {
-		
-		return motelDao.findBymotelId();
+	@SuppressWarnings("unchecked")
+	public List<T> motelDetail(MotelDetailDto dto) {
+		List<String> check = new ArrayList<>();
+		check.add(dto.getCheckin().toString());
+		check.add(dto.getCheckout().toString());
+			
+		list.add((T) motelDao.findBymotelId(dto));
+		list.add((T) motelDao.findBymotelType(dto));
+		list.add((T) check);
+		return list;
 	}
 }
