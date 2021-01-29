@@ -1,0 +1,8 @@
+package com.jkb.yanolja.domain.reservation.dto;
+
+public class ResReqDto {
+String res_motelId;
+String res_roomType;
+String checkin_info;
+String checkout_info;
+}

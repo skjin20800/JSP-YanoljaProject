@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 
 import com.jkb.yanolja.anno.RequestMapping;
 import com.jkb.yanolja.domain.motel.dto.MotelDetailDto;
+import com.jkb.yanolja.domain.reservation.dto.ResListReqDto;
+import com.jkb.yanolja.domain.reservation.dto.ResReqDto;
+import com.jkb.yanolja.domain.reservation.dto.ReservationDto;
 import com.jkb.yanolja.domain.user.dto.JoinReqDto;
 import com.jkb.yanolja.domain.user.dto.LoginReqDto;
 import com.jkb.yanolja.service.MotelService;
@@ -102,15 +105,49 @@ List<T> respList = new ArrayList<>();
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/motelDetail")
 	public List<T> motelDetail(MotelDetailDto dto) {
-//		System.out.println(dto.toString());
+		System.out.println(dto.toString());
 
 		respList.add((T) "/motelInfo.jsp");
 		respList.add((T) motelService.motelDetail(dto));
-		respList.add(null);
-		System.out.println(respList.get(1));
+		
 		return respList ;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("/checklist_info")
+	public List<T> checklist_info(String str1, String str2) {
+		respList.add((T) motelService.checklist_info(str1, str2));		
+		return respList ;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("/reservation")
+	public List<T> reservation(ReservationDto dto) {
+		respList.add((T) "/reservation.jsp");
+		respList.add((T) motelService.reservationInfo(dto));		
+		return respList ;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("/reservationReq")
+	public List<T> reservationReq(ResReqDto dto) {
+		
+		motelService.reservationEnd(dto);
+		
+		respList.add((T) "/index.jsp");
+		respList.add(null);
+		return respList ;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("/reservationList")
+	public List<T> reservationList(ResListReqDto dto) {
+		
+		respList.add((T) "/reservationList.jsp");
+		respList.add((T) motelService.reservationList(dto));
+		return respList ;
+	}
 	
 	
 	

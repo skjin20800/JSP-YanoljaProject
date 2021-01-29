@@ -1,0 +1,22 @@
+package com.jkb.yanolja.domain.reservation.dto;
+
+import lombok.Data;
+
+@Data
+public class ResRestSaveDto {
+
+	int userId;
+	int motelId;
+	int typeListId;
+	String username;
+	String phone;
+	String motelName;
+	String address;
+	String roomType;
+	String checkIn;
+	String checkOut;
+	String roomPrice;
+	String lodgmentPrice;
+	String roomNumber;
+	
+}

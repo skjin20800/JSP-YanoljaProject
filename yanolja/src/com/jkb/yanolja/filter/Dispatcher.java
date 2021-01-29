@@ -20,7 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.jkb.yanolja.anno.RequestMapping;
+import com.jkb.yanolja.util.Script;
 import com.jkb.yanolja.web.FrontController;
 
 public class Dispatcher implements Filter {
@@ -32,7 +34,7 @@ public class Dispatcher implements Filter {
 
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
-		
+
 		//엔드포인트
 		String endPoint = request.getRequestURI().replaceAll(request.getContextPath(), "");
 		
@@ -42,14 +44,22 @@ public class Dispatcher implements Filter {
 		String ext = endPoint.substring( pos + 1 );
 		System.out.println("엔드포인트" + endPoint);
 		
+	
+		
+		
 			if(ext.equals("css")||ext.equals("png")||ext.equals("js")) {
 				chain.doFilter(request, response);
 			}
 					
-		if(endPoint.equals("/index.jsp")) {
+
+			
+		if(endPoint.equals("/index.jsp") ) {
 			RequestDispatcher dis = request.getRequestDispatcher("/index.jsp"); // 필터를 다시 안탐!!
 			dis.forward(request, response);	
 		}
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
 			
 		FrontController userController = new FrontController();
 		
@@ -61,7 +71,6 @@ public class Dispatcher implements Filter {
 		if(endPoint.equals("/usernameCheck")){
 			BufferedReader br = request.getReader(); //아이디 중복체크
 			String usernameCheck = br.readLine(); //아이디 중복체크
-			System.out.println("버퍼값"+usernameCheck);
 			if(usernameCheck != null) {
 				int usernameResult = userController.usernameCheck(usernameCheck);
 				PrintWriter out = response.getWriter();
@@ -77,6 +86,18 @@ public class Dispatcher implements Filter {
 			HttpSession session = request.getSession();
 			session.invalidate();
 			response.sendRedirect("index.jsp");
+			return;
+		}else if(endPoint.equals("/motelInfoList")) {
+			BufferedReader br = request.getReader(); //아이디 중복체크
+			String motelInfoList =  br.readLine(); 
+			String []check = motelInfoList.split(":");
+			String checkin = check[0];
+			String motelId = check[1];
+			Gson gson = new Gson();
+			
+			String responseData = gson.toJson(userController.checklist_info(checkin, motelId).get(0));
+			Script.responseData(response, responseData);
+			
 			return;
 		}
 		

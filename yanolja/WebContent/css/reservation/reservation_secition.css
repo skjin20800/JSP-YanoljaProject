@@ -157,3 +157,9 @@
 .res__btn{
  width: 730px !important;
 }
+
+.check{
+	border: none;
+	outline: none;
+	font-weight: 700;
+}

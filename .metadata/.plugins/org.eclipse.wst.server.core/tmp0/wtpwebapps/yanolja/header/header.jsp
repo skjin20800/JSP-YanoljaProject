@@ -39,7 +39,10 @@
             <c:when test="${sessionScope.session !=null }">
              <div class="yanolja__user  ">
                 <div>
-                    <button type="button" class="btn"  onclick = "location.href = '#'">예약 리스트보기</button>
+                 <form action="/yanolja/reservationList" method="post" id="reservation_list" >
+                 <input type="hidden" value="${sessionScope.session.id}" name="reservation_input" id="reservation_input" />
+                    <button type="submit" class="btn"  >예약 리스트보기</button>
+                    </form>
             </div>
             <div>
                 <button type="button" class="btn" onclick = "location.href = 'logout'">로그아웃</button>

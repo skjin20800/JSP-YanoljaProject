@@ -1,0 +1,23 @@
+window.onload=function(){
+	var checkin_1 = checkin;
+	var checkout_1 = checkout;
+
+	var checkinSplit1 = checkin_1.split(' ');
+	var checkinSplit2 = checkinSplit1[0].split('-');
+	var checkinSplit3 = checkinSplit1[1].split(':');
+	console.log(checkinSplit3);
+	
+	var inyyyy = checkinSplit2[0];
+	var inmm = checkinSplit2[1];
+	var indd = checkinSplit2[2];
+	
+	console.log(checkinSplit3[0]);
+	var inhh = checkSplit3[0];
+	var inminute = checkSplit3[1];
+	
+	
+	 /* console.log(document.getElementById("checkin_input").value); */ 
+	/* console.log(`${inyyyy}-${inmm}-${indd} ${inhh}:${inminute} 입실`); */
+	/* document.getElementById("checkin_input").value = `${inyyyy}-${inmm}-${indd} ${inhh}:${inminute} 입실`; */
+	
+    }

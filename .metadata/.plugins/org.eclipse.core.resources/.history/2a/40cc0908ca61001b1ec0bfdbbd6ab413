@@ -1,0 +1,186 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모텔 정보</title>
+    <link rel="stylesheet" href="css/motelInfo/motelInfo_style.css" />
+    <%@ include file="header/header.jsp" %>
+    <section>
+        <div class="section1__main">
+            <div></div>
+            <div class="section1__center">
+                <!--사진-->
+                <div>
+                    <div id="demo" class="carousel slide carousel__slide" data-ride="carousel">
+
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner carousel_border">
+                          
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+                <!--사진 끝-->
+                <div class="motel__name"> ${data[0].motelName} </div>
+                <div class="motel__star">⭐<strong>${data[0].star}</strong>/5</div>
+                <div class="motel__coupon">${data[0].motelInfo}</div>
+                <!--캘린더-->
+                <div class="calender__main">
+                    <div class="calender__info1">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker7A" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input"  id="checkin_info" name="checkin_info"
+                                    data-target="#datetimepicker7A" placeholder="체크인 날짜" />
+                                <div class="input-group-append" data-target="#datetimepicker7A"
+                                    data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calender__info2">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker8A" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" id="checkout_info" name="checkout_info"
+                                    data-target="#datetimepicker8A" placeholder="체크아웃 날짜" />
+                                <div class="input-group-append" data-target="#datetimepicker8A"
+                                    data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--캘린더 끝-->
+                <!--카드시작-->
+                <div class=card__grid>
+
+                </div>
+                <!--카드끝-->
+                <div><img src="images/motelInfo/motelInfo1.png" width="770px" height="420px" /></div>
+                <div><img src="images/motelInfo/motelInfo2.png" width="770px" height="300px" /></div>
+                <button type="button"  onclick="test()" >버튼</button>
+            </div>
+            <div></div>
+        </div>
+    </section>
+<script type="text/javascript">
+
+
+
+var arrPic= new Array();
+
+<c:forEach items="${data[0].motelInfoPic}" var="item">
+arrPic.push({
+	motelInfoPic:"${item}",
+	});
+	
+</c:forEach>
+
+
+var arr= new Array();
+
+ <c:forEach items="${data[1]}" var="item">
+ arr.push({
+	roomPic:"${item.roomPic}",
+ 	roomType:"${item.roomType}",
+ 	roomPrice:"${item.roomPrice}",
+ 	lodgmentPrice:"${item.lodgmentPrice}"
+ 	});
+ </c:forEach>
+ 
+  var checkIn = "${data[2][0]}";
+  var checkOut = "${data[2][1]}";
+ 
+  
+</script>
+ <script src="javascript/motelInfo.js">
+    </script>
+
+<script>
+
+var data = "${data[0].id}";
+
+
+function test(){
+	
+	    
+	var check_info = $("#checkin_info").val()+":"+data;		
+	
+	$.ajax({
+	    type: "POST",
+	    url: "/yanolja/motelInfoList",
+	    data: check_info,
+	    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+	    dataType: "json"  // 응답 받을 데이터의 타입을 적으면 자바스크립트 오브젝트로 파싱해줌.
+	}).done(function(checkin_infos){
+		console.log(checkin_infos[0][0].roomPic);
+		console.log(checkin_infos[0]);
+		console.log(checkin_infos);
+		
+      addDiv3(checkin_infos[0]);
+      
+
+      
+    });
+	
+	
+	
+	};
+	
+
+  	function addDiv3(checkin_infos){
+	      var cardGrid = $(".card__grid")[0];
+	    
+	      for(checkin_info of checkin_infos){
+			console.log(checkin_info.roomPic)
+			var roomPic = checkin_info.roomPic;
+	        var roomType = checkin_info.roomType;
+			var roomPrice = checkin_info.roomPrice;
+			var lodgmentPrice = checkin_info.lodgmentPrice;
+			console.log("111"+"${roomPic}");
+			console.log("222"+`${roomPic}`);
+	        var newDiv = document.createElement("div");
+	        
+
+			var cardDetail = `<div class="card card__body">`;
+	        cardDetail += `<button class="btn__card btn-default" type ="submit" onclick="">`;
+			cardDetail += `<div class="card__position ">`;
+			cardDetail += `<img class="card-img-top" src="${roomPic}" alt="Card image">`;
+			cardDetail += `<div class="card-body card__body2">`;
+			cardDetail += '<h4 class="card-title card__text">'+checkin_info.roomType+'</h4>';
+			cardDetail += `<p class="card-text card__text"></p>`;
+			cardDetail += `<div class="room__kinds">대실</div>`;
+			cardDetail += `<div class="room__price">판매가</div>`;
+			cardDetail += `<div class="room__won"><strong>${roomPrice}</strong>원</div>`;
+			cardDetail += `<div class="room__kinds">숙박</div>`;
+			cardDetail += `<div class="room__price">판매가</div>`;
+			cardDetail += `<div class="room__won"><strong>${lodgmentPrice}</strong>원</div>`;
+			cardDetail += `</div></div></button></div>`;
+	        newDiv.innerHTML = cardDetail;
+
+
+	         cardGrid.append(newDiv);
+
+
+	        
+	      }
+	    }
+	
+</script>
+    
+</body>
+
+</html>

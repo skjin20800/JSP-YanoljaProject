@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="css/motelInfo/motelInfo_style.css" />
     <%@ include file="header/header.jsp" %>
     <section>
+    <form action="/yanolja/reservation" method="post" id="reservation" >
+        <input type="hidden" value="0" name="res_motelId" id="res_motelId" />
+    <input type="hidden" value="0" name="res_roomType" id="res_roomType" />
         <div class="section1__main">
             <div></div>
+
             <div class="section1__center">
                 <!--사진-->
                 <div>
@@ -41,7 +45,7 @@
                     <div class="calender__info1">
                         <div class="form-group">
                             <div class="input-group date" id="datetimepicker7A" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input"
+                                <input type="text" class="form-control datetimepicker-input"  id="checkin_info" name="checkin_info"
                                     data-target="#datetimepicker7A" placeholder="체크인 날짜" />
                                 <div class="input-group-append" data-target="#datetimepicker7A"
                                     data-toggle="datetimepicker">
@@ -53,7 +57,7 @@
                     <div class="calender__info2">
                         <div class="form-group">
                             <div class="input-group date" id="datetimepicker8A" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input"
+                                <input type="text" class="form-control datetimepicker-input" id="checkout_info" name="checkout_info"
                                     data-target="#datetimepicker8A" placeholder="체크아웃 날짜" />
                                 <div class="input-group-append" data-target="#datetimepicker8A"
                                     data-toggle="datetimepicker">
@@ -65,7 +69,7 @@
                 </div>
                 <!--캘린더 끝-->
                 <!--카드시작-->
-                <div class=card__grid>
+                <div class="card__grid"  id = card__id >
 
                 </div>
                 <!--카드끝-->
@@ -74,8 +78,15 @@
             </div>
             <div></div>
         </div>
+        </form>
     </section>
+    
+        
+
+    
 <script type="text/javascript">
+
+
 
 var arrPic= new Array();
 
@@ -100,7 +111,11 @@ var arr= new Array();
  
   var checkIn = "${data[2][0]}";
   var checkOut = "${data[2][1]}";
- 
+  
+  var data = "${data[0].id}";
+  
+
+  
 </script>
  <script src="javascript/motelInfo.js">
     </script>

@@ -59,12 +59,9 @@ public class UserDao {
 				User user = User.builder()
 						.id(rs.getInt("id"))
 				.username(rs.getString("username"))
-				.password(rs.getString("password"))
 				.phone(rs.getString("phone"))
 				.email(rs.getString("email"))
 				.userRole(rs.getString("userRole"))
-				.createDate(rs.getTimestamp("createDate"))
-				.updateDate(rs.getTimestamp("updateDate"))
 				.build();
 						System.out.println("로그인 성공");
 				return user;

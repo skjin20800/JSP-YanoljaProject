@@ -1,0 +1,5 @@
+package com.jkb.yanolja.domain.reservation.dto;
+
+public class ResReqDto {
+
+}

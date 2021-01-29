@@ -1,0 +1,29 @@
+package com.jkb.yanolja.domain.reservation.check;
+
+import com.jkb.yanolja.domain.reservation.dto.ResReqDto;
+
+public class Check {
+
+	
+	public static void check(ResReqDto dto) {
+		
+		String []checkin =dto.getCheckin_input().toString().split("/"); 
+		String []checkinT =dto.getCheckin_input().toString().split(":");
+		
+		String cut1 = dto.getCheckin_inputT().toString().replaceAll(" AM","");
+		String cut2 = cut1.replaceAll(" PM","");
+		
+//		String cut = dto.getCheckin_input().toString().replaceAll(“C#”, “Java”);
+		
+//		String ext = endPoint.substring( pos + 1 );
+		
+				String checkin_Resp = checkin[2]+"-"+checkin[0]+"-"+checkin[1]; 
+		
+		
+		dto.getCheckin_inputT();
+		
+		dto.getCheckout_input();
+		dto.getCheckout_inputT();
+		
+	}
+}

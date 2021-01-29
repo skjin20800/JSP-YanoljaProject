@@ -1,0 +1,62 @@
+package com.jkb.yanolja.domain.reservation.check;
+
+import com.jkb.yanolja.domain.reservation.dto.ResReqDto;
+
+public class Check {
+
+	public static String[] check(ResReqDto dto) {
+		System.out.println("check1");
+
+		// 생년월일
+		String checkin_Resp = new String(dto.getCheckin_input());
+		String checkin_RespSub1 = checkin_Resp.substring(0, 4);
+		String checkin_RespSub2 = checkin_Resp.substring(5, 7);
+		String checkin_RespSub3 = checkin_Resp.substring(8, 10);
+
+		// 시간
+		String cut1 = dto.getCheckin_inputT().toString().replaceAll(" AM", "");
+		String cut2 = cut1.replaceAll(" PM", "");
+		
+		String cut3 = dto.getCheckin_inputT().substring(5, 7);
+		System.out.println(cut3);
+		if(cut3.equals("PM")) {
+			int PM = Integer.parseInt(cut2);
+			System.out.println(cut2);
+			PM = PM+12;
+			System.out.println(PM);
+			cut2 = Integer.toString(PM);
+			System.out.println(PM);
+		}
+		String checkin_RespT = cut2 + ":00";
+		System.out.println(checkin_RespT);
+		
+		//
+		// 생년월일+시간 합체
+		String checkin_Response = checkin_RespSub1 + "-" + checkin_RespSub2 + "-" + checkin_RespSub3 + " "
+				+ checkin_RespT + "";
+		
+
+
+		String checkout_Resp = new String(dto.getCheckout_input());
+		String checkout_RespSub1 = checkout_Resp.substring(0, 4);
+		String checkout_RespSub2 = checkout_Resp.substring(5, 7);
+		String checkout_RespSub3 = checkout_Resp.substring(8, 10);
+		
+
+		// 시간
+		String cut3 = dto.getCheckout_inputT().toString().replaceAll(" AM", "");
+		String cut4 = cut1.replaceAll(" PM", "");
+		String checkout_RespT = cut2 + ":00";
+
+		// 생년월일+시간 합체
+		String checkout_Response = checkout_RespSub1 + "-" + checkout_RespSub2 + "-" + checkout_RespSub3 + " "
+				+ checkout_RespT + "";
+
+
+		String[] Response = { checkin_Response, checkout_Response };
+		
+		
+		return Response;
+
+	}
+}

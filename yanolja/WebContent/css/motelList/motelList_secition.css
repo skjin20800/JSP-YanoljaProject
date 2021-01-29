@@ -168,6 +168,8 @@ font-weight: 900;
 }
 
 .card__title{
+	display: flex;
+	justify-content: flex-start;
     font-size: 18px;
     font-weight: 900;
     margin-bottom: 0px;
@@ -179,6 +181,8 @@ font-weight: 900;
 }
 
 .card__text{
+	display: flex;
+	justify-content: flex-start;
     font-size: 1px;
     margin-bottom: 0px;
 }

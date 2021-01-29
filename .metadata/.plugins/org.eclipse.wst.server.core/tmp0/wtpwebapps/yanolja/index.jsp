@@ -11,9 +11,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>야놀자</title>
-    <link rel="stylesheet" href="css/index/index_style.css"  media="all" type="text/css"/>
+    <link rel="stylesheet" href="css/index/index_style.css?ver=1"  media="all" type="text/css"/>
+      
     <%@ include file="header/header.jsp" %>
-
     
     <section>
         <div class="section__header ">

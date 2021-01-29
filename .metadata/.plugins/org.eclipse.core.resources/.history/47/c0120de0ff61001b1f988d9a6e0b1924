@@ -1,0 +1,5 @@
+package com.jkb.yanolja.domain.reservation.check;
+
+public class Check {
+
+}
