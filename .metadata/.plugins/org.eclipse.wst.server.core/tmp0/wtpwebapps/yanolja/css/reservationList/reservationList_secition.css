@@ -8,6 +8,19 @@
     background-color: rgb(24, 24, 24);
 }
 
+.section_mainA{
+    position: absolute;
+    z-index: -1;
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(242,242,242);
+    height:1000px;
+    background-color: rgb(24, 24, 24);
+}
+
+
 .section_empty{
     
     width: 30%;
@@ -178,7 +191,17 @@
     
 }
 
-.check__time{
-	border: none;
-	outline: none;
+.section_reservationCard2{
+    width: 600px;
+    height: 330px;
+    background-color: white;
+    border-radius: 10px 40px;
+    margin-bottom: 90px;
+}
+
+.empty_card{
+    
+    
+    height: 1000px;
+    width: 600px;
 }

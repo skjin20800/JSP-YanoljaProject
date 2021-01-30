@@ -41,6 +41,7 @@
                 <div>
                  <form action="/yanolja/reservationList" method="post" id="reservation_list" >
                  <input type="hidden" value="${sessionScope.session.id}" name="reservation_input" id="reservation_input" />
+                 <input type="hidden" value="${sessionScope.session.username}" name="reservation_username" id="reservation_username" />
                     <button type="submit" class="btn"  >예약 리스트보기</button>
                     </form>
             </div>

@@ -1,0 +1,128 @@
+function checkin(checkin, id){
+	var checkin_1 = checkin;
+	
+	var checkinSplit1 = checkin_1.split(' ');
+	var checkinSplit2 = checkinSplit1[0].split('-');
+	var checkinSplit3 = checkinSplit1[1].split(':');
+	
+	var inyyyy = checkinSplit2[0];
+	var inmm = checkinSplit2[1];
+	var indd = checkinSplit2[2];
+	
+	var inhh = checkinSplit3[0];
+	var inminute = checkinSplit3[1];	
+	
+	  
+	 document.getElementById("checkin_input-"+id).value = `${inyyyy}-${inmm}-${indd} ${inhh}:${inminute} 입실`; 
+	
+    }
+
+function checkout(checkout, id){
+	var checkout_1 = checkout;
+	
+	
+	var checkoutSplit1 = checkout_1.split(' ');
+	var checkoutSplit2 = checkoutSplit1[0].split('-');
+	var checkoutSplit3 = checkoutSplit1[1].split(':');
+	
+	var outyyyy = checkoutSplit2[0];
+	var outmm = checkoutSplit2[1];
+	var outdd = checkoutSplit2[2];
+	
+	var outhh = checkoutSplit3[0];
+	var outminute = checkoutSplit3[1];
+	
+document.getElementById("checkout_input-"+id).value = `${outyyyy}-${outmm}-${outdd} ${outhh}:${outminute} 퇴실`; 
+	
+    }
+
+
+
+
+
+function addDiv2(){
+      var cardGrid = $(".section_center")[0];
+    
+      for(var i = 0; i<arr.length; i++){
+
+		var id = arr[i].id;
+		var username = arr[i].username;
+        var phone = arr[i].phone;
+		var motelName = arr[i].motelName;
+		var address = arr[i].address;
+		var roomType = arr[i].roomType;
+		var roomNumber = arr[i].roomNumber;
+		var lodgmentPrice = arr[i].lodgmentPrice;
+		var roomPrice = arr[i].roomPrice;
+		var checkin = arr[i].checkin;
+		var checkout = arr[i].checkout;
+		
+		
+
+        var newDiv = document.createElement("div");
+		newDiv.id = "card-"+id;
+		
+		
+		var cardDetail = `<div class="section_reservationCard ">`;
+       cardDetail += `<div class="reservationTitle">예약정보</div>`;
+cardDetail += `<div><div class="reservationUser">예약내역</div><div>`;
+cardDetail += `<div class="res__userInfo">`;
+cardDetail += `<div class="res__userTitle">예약자</div>`;
+cardDetail += `<div class="res__username">${username}</div>`;
+cardDetail += `</div>`;
+cardDetail += `<div class="res__userInfo">`;
+cardDetail += `<div class="res__userTitle">예약자 휴대폰</div>`;
+cardDetail += `<div class="res__username">${phone}</div>`;
+cardDetail += `</div></div></div>`;
+cardDetail += `<div>`;
+cardDetail += `<div class="reservationUser mt10">모텔정보</div>`;
+cardDetail += `<div><div class="res__address">`;
+cardDetail += `<div class="res__motelName">${motelName}</div>`;
+cardDetail += `<div class="res__motelAddress">주소</div>`;
+cardDetail += `<div class="res__AddressInfo">${address}</div>`;
+cardDetail += `</div>`;
+cardDetail += `<div>`;
+cardDetail += `<div class="res__roomInfo">`;
+cardDetail += `<div class="res__side">`;
+cardDetail += `<div class="res__side2">`;
+cardDetail += `<div class="res__text">룸타입</div>`;
+cardDetail += `<div class="res__text">방 호수</div>`;
+cardDetail += `</div><div>`;
+cardDetail += `<div class="res__side2">`;
+cardDetail += `<div class="res__text1">${roomType}</div>`;
+cardDetail += `<div class="res__text1">${roomNumber}</div>`;
+cardDetail += `</div></div></div>`;
+cardDetail += `<div class="res__side">`;
+cardDetail += `<div class="res__side2">`;
+cardDetail += `<div class="res__text">체크인</div>`;
+cardDetail += `<div class="res__text">체크아웃</div></div>`;
+cardDetail += `<div><div class="res__side2">`;
+cardDetail += `<div class="res__text1"> <input type="text" value="적용됫구먼" name="checkin_input-${id}" id="checkin_input-${id}"  class="check__time"/></div>`;
+cardDetail += `<div class="res__text1"><input type="text" value="적용됫구먼" name="checkout_input-${id}" id="checkout_input-${id}]"  class="check__time"/></div>`;
+cardDetail += `</div></div></div>`;
+cardDetail += `<div class="res__side">`;
+cardDetail += `<div class="res__side2">`;
+cardDetail += `<div class="res__text">대실</div>`;
+cardDetail += `<div class="res__text">숙박</div>`;
+cardDetail += `</div><div>`;
+cardDetail += `<div class="res__side2">`;
+cardDetail += `<div class="res__text1">${roomPrice}</div>`;
+cardDetail += `<div class="res__text1">${lodgmentPrice}</div>`;
+cardDetail += `</div></div></div></div></div></div></div>`;
+cardDetail += `<div class="button__danger">`;
+cardDetail += `<button type="button" class="btn btn-danger">예약 취소</button></div>`;
+cardDetail += `</div>`;
+
+checkin(checkin,id);
+checkout(checkout,id);
+
+newDiv.innerHTML = cardDetail;
+         cardGrid.append(newDiv);
+
+ /*cardDetail += `<button class="btn__card btn-default" type ="submit" onclick="btn_motelType('${roomType}')">`;*/
+        
+
+
+        
+      }
+    }*/

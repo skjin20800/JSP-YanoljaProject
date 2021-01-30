@@ -1,0 +1,72 @@
+window.onload=function(){
+	var checkin_1 = checkin;
+	var checkout_1 = checkout;
+
+	var checkinSplit1 = checkin_1.split(' ');
+	var checkinSplit2 = checkinSplit1[0].split('-');
+	var checkinSplit3 = checkinSplit1[1].split(':');
+	
+	var inyyyy = checkinSplit2[0];
+	var inmm = checkinSplit2[1];
+	var indd = checkinSplit2[2];
+	
+	var inhh = checkinSplit3[0];
+	var inminute = checkinSplit3[1];
+	
+	
+	var checkoutSplit1 = checkout_1.split(' ');
+	var checkoutSplit2 = checkoutSplit1[0].split('-');
+	var checkoutSplit3 = checkoutSplit1[1].split(':');
+	
+	var outyyyy = checkoutSplit2[0];
+	var outmm = checkoutSplit2[1];
+	var outdd = checkoutSplit2[2];
+	
+	var outhh = checkoutSplit3[0];
+	var outminute = checkoutSplit3[1];
+	
+	
+	  
+	 document.getElementById("checkin_input").value = `${inyyyy}-${inmm}-${indd} ${inhh}:${inminute} 입실`;
+document.getElementById("checkin_output").value = `${outyyyy}-${outmm}-${outdd} ${outhh}:${outminute} 퇴실`; 
+	
+    }
+
+
+
+/* function addDiv2(){
+      var cardGrid = $(".section_center")[0];
+    
+      for(var i = 0; i<arr.length; i++){
+
+		var roomPic = arr[i].roomPic;
+        var roomType = arr[i].roomType;
+		var roomPrice = arr[i].roomPrice;
+		var lodgmentPrice = arr[i].lodgmentPrice;
+
+        var newDiv = document.createElement("div");
+        
+
+		var cardDetail = `<div class="card card__body">`;
+        cardDetail += `<button class="btn__card btn-default" type ="submit" onclick="btn_motelType('${roomType}')">`;
+		cardDetail += `<div class="card__position ">`;
+		cardDetail += `<img class="card-img-top" src="${roomPic}" alt="Card image">`;
+		cardDetail += `<div class="card-body card__body2">`;
+		cardDetail += `<h4 class="card-title card__text">${roomType}</h4>`;
+		cardDetail += `<p class="card-text card__text"></p>`;
+		cardDetail += `<div class="room__kinds">대실</div>`;
+		cardDetail += `<div class="room__price">판매가</div>`;
+		cardDetail += `<div class="room__won"><strong>${roomPrice}</strong>원</div>`;
+		cardDetail += `<div class="room__kinds">숙박</div>`;
+		cardDetail += `<div class="room__price">판매가</div>`;
+		cardDetail += `<div class="room__won"><strong>${lodgmentPrice}</strong>원</div>`;
+		cardDetail += `</div></div></button></div>`;
+        newDiv.innerHTML = cardDetail;
+
+
+         cardGrid.append(newDiv);
+
+
+        
+      }
+    }*/

@@ -46,10 +46,13 @@ List<T> respList = new ArrayList<>();
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/joinReq")
 	public List<T> join(JoinReqDto dto) {
-		userService.회원가입(dto);
-		respList.add((T) "/index.jsp");
+		int result = userService.회원가입(dto);
+		if(result == 1) {
+			respList.add((T) "/index.jsp");	
+		}else {
+			respList.add((T) "/userjoin.jsp");
+		}
 		respList.add(null);
-		
 		return respList;
 	}
 	
@@ -64,7 +67,13 @@ List<T> respList = new ArrayList<>();
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/loginReq")
 	public List<T> loginReq(LoginReqDto dto) {	
-		respList.add((T) "/index.jsp");
+		if(userService.로그인(dto) != null) {
+			System.out.println("성공 : " + userService.로그인(dto));
+			respList.add((T) "/index.jsp");	
+		}else {
+			System.out.println("실패 : " + userService.로그인(dto));
+			respList.add((T) "/userlogin.jsp");	
+		}
 		respList.add((T) userService.로그인(dto));
 		return respList;
 	}
@@ -149,6 +158,11 @@ List<T> respList = new ArrayList<>();
 		return respList ;
 	}
 	
+	
+	@RequestMapping("/뒬리틍")
+	public int reservationDeleteAjax(String typeListId) {
+		return motelService.reservationDelete(typeListId);
+	}
 	
 	
 	

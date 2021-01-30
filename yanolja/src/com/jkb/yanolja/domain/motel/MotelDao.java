@@ -18,12 +18,54 @@ import com.jkb.yanolja.domain.typelist.TypeList;
 public class MotelDao {
 	
 	
-	public List<Reservation> findByReservationList(ResListReqDto dto) {
+	public int resDelete(String typeListId) { 
+		
+		StringBuffer sb = new StringBuffer(); // String전용 컬렉션(수집)이다, 동기화되어있음,
+		sb.append("DELETE FROM reservation WHERE typeListId = ? ");
+		String sql = sb.toString();	
+		Connection conn = DBConnection.getInstance();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, typeListId);
+			
+			int result = pstmt.executeUpdate();
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally { // 무조건 실행
+			DBConnection.close(conn, pstmt);
+		}
+		return -1;
+	}
+	
+	public int reservationFalse(String typeListId) { 
+		
+		StringBuffer sb = new StringBuffer(); // String전용 컬렉션(수집)이다, 동기화되어있음,
+		sb.append("UPDATE typelist SET reservation = 'false' WHERE id = ? ");
+		String sql = sb.toString();	
+		Connection conn = DBConnection.getInstance();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, typeListId);
+			
+			int result = pstmt.executeUpdate();
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally { // 무조건 실행
+			DBConnection.close(conn, pstmt);
+		}
+		return -1;
+	}
+	
+	
+	public List<Reservation> findByReservationListAdmin(ResListReqDto dto) {
 		StringBuffer sb = new StringBuffer(); // String전용 컬렉션(수집)이다, 동기화되어있음,
 		sb.append("SELECT id ,userId, motelId, typeListId, username, phone, motelName, address, roomType, checkIn, checkOut, " );
 		sb.append("roomPrice, lodgmentPrice, roomNumber, createDate,updateDate ");
 		sb.append("FROM reservation ");
-		sb.append("WHERE userId =? ");
 		String sql = sb.toString();	
 		Connection conn = DBConnection.getInstance();
 		PreparedStatement pstmt = null;
@@ -32,9 +74,58 @@ public class MotelDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			System.out.println(dto.getReservation_input());
-			int userId = Integer.parseInt(dto.getReservation_input());
-			pstmt.setInt(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Reservation reservation = Reservation.builder()
+						.id(rs.getInt("id"))
+						.userId(rs.getInt("userId"))
+						.motelId(rs.getInt("motelId"))
+						.typeListId(rs.getInt("typeListId"))
+						.username(rs.getString("username"))
+						.phone(rs.getString("phone"))
+						.motelName(rs.getString("motelName"))
+						.address(rs.getString("address"))
+						.roomType(rs.getString("roomType"))
+						.checkIn(rs.getTimestamp("checkIn"))
+						.checkOut(rs.getTimestamp("checkOut"))
+						.roomPrice(rs.getString("roomPrice"))
+						.lodgmentPrice(rs.getString("lodgmentPrice"))
+						.roomNumber(rs.getString("roomNumber"))
+						.build();				
+				reservationList.add(reservation);
+			}
+			
+			return reservationList;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConnection.close(conn,pstmt,rs);
+		}
+		
+		return null;
+	}
+	
+	
+	
+	public List<Reservation> findByReservationList(ResListReqDto dto) {
+		StringBuffer sb = new StringBuffer(); // String전용 컬렉션(수집)이다, 동기화되어있음,
+		sb.append("SELECT id ,userId, motelId, typeListId, username, phone, motelName, address, roomType, checkIn, checkOut, " );
+		sb.append("roomPrice, lodgmentPrice, roomNumber, createDate,updateDate ");
+		sb.append("FROM reservation ");
+		sb.append("WHERE username =? ");
+		String sql = sb.toString();	
+		Connection conn = DBConnection.getInstance();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Reservation> reservationList = new ArrayList<>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			pstmt.setString(1, dto.getReservation_username());
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

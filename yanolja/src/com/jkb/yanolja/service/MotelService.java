@@ -77,10 +77,26 @@ public class MotelService<T> {
 	@SuppressWarnings("unchecked")
 	public List<T> reservationList(ResListReqDto dto) {
 		
-		list.add((T) motelDao.findByReservationList(dto));
+		if(dto.getReservation_username().equals("admin")) {
+			list.add((T) motelDao.findByReservationListAdmin(dto));
+		}else {
+			list.add((T) motelDao.findByReservationList(dto));	
+		}
 		return list;
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public int reservationDelete(String typeListId) {
+		int result = motelDao.resDelete(typeListId);
+		if (result == 1) {
+			result = motelDao.reservationFalse(typeListId);
+			if (result == 1){
+				return result; 
+			}
+		}
+		return -1;
+	}
 	
 }
 

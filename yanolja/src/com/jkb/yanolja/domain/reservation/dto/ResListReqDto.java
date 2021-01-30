@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class ResListReqDto {
 	String reservation_input;
-	
+	String reservation_username;
 }

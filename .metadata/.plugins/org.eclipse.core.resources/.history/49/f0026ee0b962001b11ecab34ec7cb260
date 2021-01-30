@@ -1,0 +1,198 @@
+.section_main{
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(242,242,242);
+    height:auto;
+    background-color: rgb(24, 24, 24);
+}
+
+.section_empty{
+    
+    width: 30%;
+}
+
+.section_center{
+    padding-top: 90px;
+    display: flex;
+    
+    align-items: center;
+    background-color: rgb(61, 61, 61);
+    flex-direction: column;
+    width: 770px;
+    height: auto;
+    
+}
+
+.section_reservationCard{
+    width: 600px;
+    height: 800px;
+    background-color: white;
+    border-radius: 10px 40px;
+    margin-bottom: 90px;
+}
+
+.reservationTitle{
+    background-color: #fe2d5f;
+    text-shadow: 1px 1px 10px #000;
+    border-radius: 10px 40px;
+
+    width: 600px;
+    height: 150px;
+    font-size: 60px;
+    color: white;
+    font-weight: 900;
+    padding-top: 20px;
+    padding-left: 50px;
+    
+}
+
+.reservationUser{
+    width: 600px;
+    height: 70px;
+    font-size: 35px;
+    font-weight: 800;
+    color: black;
+    padding-top: 15px;
+    padding-left: 50px;
+    border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+.res__userInfo{
+    width: 600px;
+    
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.res__userTitle{
+    padding-top: 5px;
+    width: 300px;
+    height: 30px;
+    font-size: 17px;
+    font-weight: 900;
+    color: black;
+    
+    padding-left: 90px;
+}
+
+.res__username{
+    padding-left: 90px;
+    width: 300px;
+    height: 30px;
+    font-size: 17px;
+    
+    color: black;   
+}
+
+.res__address{
+    display: flex;
+    width: 300px;
+    
+    flex-direction: column;
+    font-size: 17px;
+    
+    color: black;
+    padding-left: 90px;
+    height: 120px;
+}
+
+.res__motelName{
+    padding-top: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    height: 40px;
+    width: 500px;
+}
+
+.res__motelAddress{
+    padding-top: 10px;
+    height: 40px;
+    font-weight: 800;
+}
+
+.res__AddressInfo{
+    padding-top: 10px;
+    width: 450px;
+    height: 40px;
+    margin-right: 30px;
+    font-size: 14px;
+    border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+.res__roomInfo{
+    
+    width: 600px;
+    height: 200px;
+    padding-top: 20px;
+}
+
+.res__side{
+    padding-left: 90px;
+
+    width: 600px;
+    height: 60px;
+    
+}
+
+.res__side2{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    
+}
+
+.res__text{
+    width: 220px;
+    font-size: 17px;
+    font-weight: 700;
+    color: black;
+    
+}
+
+.res__text1{
+    width: 220px;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    
+}
+
+.button__danger{
+    display: flex;
+    width: 600px;
+    height: 100px;
+    
+    justify-content: flex-end;
+    padding-top: 40px;
+    padding-right: 30px;
+}
+
+.button__danger button{
+    
+    width: 150px;
+    height: 50px;
+    
+}
+
+.check__time{
+	border: none;
+	outline: none;
+}
+
+.section_reservationCard2{
+    width: 600px;
+    height: 330px;
+    background-color: white;
+    border-radius: 10px 40px;
+    margin-bottom: 90px;
+}
+
+.empty_card{
+    height: 1000px;
+    width: 600px;
+    
+}

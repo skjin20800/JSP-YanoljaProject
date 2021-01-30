@@ -10,14 +10,47 @@
 	<link rel="stylesheet" href="css/reservationList/reservationList_style.css" />
    <%@ include file="header/header.jsp" %>
 	<section>
-		<div class="section_main">
+	
+			<div class="section_mainA">
 			<div class="section_empty">
 			</div>
 			<div class="section_center ">
 				<!--예약 카드 시작-->
-				
-				<div class="section_reservationCard ">
+				<div class=" empty_card"> 
+				<div class="section_reservationCard2 ">
 					<div class="reservationTitle">예약정보</div>
+					<div>
+						<div class="reservationUser">예약내역</div>
+						<div>
+							<div class="res__userInfo">
+								<div class="res__userTitle"> </div>
+								<div class="res__username"></div>
+							</div>
+							<div class="res__userInfo">
+								<div class="res__userTitle">예약 내역이없습니다</div>
+								<div class="res__username"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+				<!--예약 카드 끝-->
+			 
+
+			</div>
+			<div class="section_empty">
+			</div>
+		</div>
+	
+		<div class="section_main">
+			<div class="section_empty">
+			</div>
+			<div class="section_center card__main">
+
+      
+				<!--예약 카드 시작-->
+				<!-- <div class="section_reservationCard ">
+					<div class="reservationTitle">예약정보1111111111</div>
 					<div>
 						<div class="reservationUser">예약내역</div>
 						<div>
@@ -30,13 +63,11 @@
 								<div class="res__username">${data[0][0].phone}</div>
 							</div>
 						</div>
-
 					</div>
 					<div>
 						<div class="reservationUser mt10">
 							모텔정보
 						</div>
-
 						<div>
 							<div class="res__address">
 								<div class="res__motelName">${data[0][0].motelName}</div>
@@ -51,6 +82,7 @@
 											<div class="res__text">방 호수</div>
 										</div>
 										<div>
+
 											<div class="res__side2">
 												<div class="res__text1">${data[0][0].roomType}</div>
 												<div class="res__text1">${data[0][0].roomNumber}</div>
@@ -88,7 +120,7 @@
 
 					<div class="button__danger">
 						<button type="button" class="btn btn-danger">예약 취소</button></div>
-				</div>
+				</div> -->
 				<!--예약 카드 끝-->
 				
 			</div>
@@ -99,13 +131,30 @@
 
 <script>
 
-var checkin = "${data[0][0].checkIn}";
-var checkout = "${data[0][0].checkOut}";
+var arr= new Array();
 
+<c:forEach items="${data[0]}" var="item">
+arr.push({
+	id:"${item.id}",
+	typeListId:"${item.typeListId}",
+	username:"${item.username}",
+	phone:"${item.phone}",
+	motelName:"${item.motelName}",
+	address:"${item.address}",
+	roomType:"${item.roomType}",
+	roomNumber:"${item.roomNumber}",
+	lodgmentPrice:"${item.lodgmentPrice}",
+	roomPrice:"${item.roomPrice}",
+	checkin : "${item.checkIn}",
+	checkout : "${item.checkOut}"
+	});
+</c:forEach>
 
 </script>
 <script src="javascript/reservationList.js">
     </script>
+
+
 </body>
 
 </html>

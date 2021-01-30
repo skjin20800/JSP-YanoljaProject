@@ -5,13 +5,21 @@
 		<item key="DIALOG_Y_ORIGIN" value="403"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="체크인"/>
+		<item key="selection" value="joinReq"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="joinReq"/>
+			<item value="responseData"/>
+			<item value="OR"/>
+			<item value="reservation"/>
+			<item value="List"/>
+			<item value="username"/>
+			<item value="reservationList"/>
+			<item value="findByReservationList"/>
 			<item value="체크인"/>
 			<item value="inpu"/>
 			<item value="input"/>
@@ -19,14 +27,6 @@
 			<item value="data[0]"/>
 			<item value="data"/>
 			<item value="dao"/>
-			<item value="sele"/>
-			<item value="select"/>
-			<item value="system"/>
-			<item value="motelId"/>
-			<item value="숙박 종류"/>
-			<item value="날짜변수"/>
-			<item value="날짜"/>
-			<item value="sys"/>
 		</list>
 		<list key="replacehistory">
 			<item value="data[0][0]"/>

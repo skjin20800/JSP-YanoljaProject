@@ -34,7 +34,7 @@
                                             <div class="input-group date" id="datetimepicker3"
                                                 data-target-input="nearest">
                                                 <input type="text" class="form-control datetimepicker-input" name="checkin_inputT" id="checkin_inputT" 
-                                                    data-target="#datetimepicker3" placeholder="체크인 시간 선택" />
+                                                    data-target="#datetimepicker3" placeholder="체크인 시간 선택"  required/>
                                                 <div class="input-group-append" data-target="#datetimepicker3"
                                                     data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="fa fa-clock-o">선택</i></div>
@@ -58,7 +58,7 @@
                                             <div class="input-group date" id="datetimepicker4"
                                                 data-target-input="nearest">
                                                 <input type="text" class="form-control datetimepicker-input" name="checkout_inputT"  id="checkout_inputT"
-                                                    data-target="#datetimepicker4" placeholder="체크아웃 시간 선택" />
+                                                    data-target="#datetimepicker4" placeholder="체크아웃 시간 선택" required/>
                                                 <div class="input-group-append" data-target="#datetimepicker4"
                                                     data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="fa fa-clock-o">선택</i></div>
