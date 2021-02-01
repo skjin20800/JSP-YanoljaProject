@@ -3,7 +3,8 @@
 # JSP-Yanolja-Project
 
 
-안녕하세요. 진경빈입니다.
+안녕하세요. 진경빈입니다.   
+
 이번에는 2021-01-22일 ~ 2021~01-29일간 야놀자 홈페이지를 JSP를 이용하여 제작했습니다.
 
 
@@ -135,7 +136,7 @@
 <br>
 
 ## 6. 지역 모텔 리스트 
-- 체크인, 체크아웃 [bootstrap4 - datetimepicker]  
+### 체크인, 체크아웃 [bootstrap4 - datetimepicker]  
   - Linked Pickers
  
  ![Calender_1](./mdimg/Calender_1.png)
@@ -143,7 +144,7 @@
   <br>
   
 
-- 모텔 리스트 출력
+### 모텔 리스트 출력
    - 해당지역- 모텔리스트 Select
   - Select수만큼 javascript를 이용해 출력
   
@@ -153,17 +154,19 @@
 <br>
 
 ## 7. 모텔 정보 출력
-- 6번의 정보 출력
+### 6번의 정보 출력
     - 체크인, 체크아웃, 모텔정보 
-- 모텔 룸 사진 출력 [bootstrap - Carousel]
+### 모텔 룸 사진 출력 [bootstrap - Carousel]
 ![MotelInfo1](./mdimg/MotelInfo1.png)
    <br>
+   <br>
    
-- 체크인 가능날짜 룸 타입 출력 [AJAX]
+### 체크인 가능날짜 룸 타입 출력 [AJAX]
 ![MotelInfo1](./mdimg/MotelInfo1.png)
-  <br>
+<br>
+<br>
   
-- 체크인 불가능 날짜 룸 타입 미출력 [AJAX]
+### 체크인 불가능 날짜 룸 타입 미출력 [AJAX]
 ![MotelInfo3](./mdimg/MotelInfo3.png)
 
 <br>
@@ -188,7 +191,8 @@
   -  세션의 ID로 조회하여 예약리스트 출력
   - 세션의 ID와 예약자의 ID 일치시 예약취소(삭제) [AJAX]
       -  예약 취소시 typelist테이블의 reservation = 'false'로 update
-         -   reservation 테이블 레코드 삭제 
+         -   reservation 테이블 레코드 삭제
+   
    ![reservationList_1](./mdimg/reservationList_1.png)
   
 <br>
