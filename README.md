@@ -105,7 +105,7 @@
 
 ## 3. 로그인
 ### 로그인된 User 정보 Session에 저장
-   - ![Login](./mdimg/Login.png)
+![Login](./mdimg/Login.png)
 
 <br>
 <br>
@@ -137,13 +137,16 @@
 ## 6. 지역 모텔 리스트 
 - 체크인, 체크아웃 [bootstrap4 - datetimepicker]  
   - Linked Pickers
+ 
  ![Calender_1](./mdimg/Calender_1.png)
  ![Calender_2](./mdimg/Calender_2.png)
+  <br>
   
 
 - 모텔 리스트 출력
    - 해당지역- 모텔리스트 Select
   - Select수만큼 javascript를 이용해 출력
+  
   ![MotelList](./mdimg/MotelList.png)
 
 <br>
