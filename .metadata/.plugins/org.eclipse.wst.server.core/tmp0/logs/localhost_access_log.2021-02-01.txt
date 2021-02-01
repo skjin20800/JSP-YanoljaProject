@@ -114,3 +114,13 @@
 0:0:0:0:0:0:0:1 - - [01/Feb/2021:15:49:57 +0900] "GET /yanolja/css/reservationList/reservationList_style.css HTTP/1.1" 200 191
 0:0:0:0:0:0:0:1 - - [01/Feb/2021:15:49:57 +0900] "GET /yanolja/javascript/reservationList.js HTTP/1.1" 200 5061
 0:0:0:0:0:0:0:1 - - [01/Feb/2021:15:49:57 +0900] "GET /yanolja/css/reservationList/reservationList_secition.css HTTP/1.1" 200 3425
+127.0.0.1 - - [01/Feb/2021:19:15:53 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:15:54 +0900] "GET /yanolja/index.jsp HTTP/1.1" 200 31487
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:15:54 +0900] "GET /yanolja/javascript/index.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:15:54 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:15:57 +0900] "GET /yanolja/login HTTP/1.1" 200 3272
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:16:00 +0900] "POST /yanolja/loginReq HTTP/1.1" 200 31802
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:16:02 +0900] "POST /yanolja/reservationList HTTP/1.1" 200 6658
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:16:02 +0900] "GET /yanolja/css/reservationList/reservationList_style.css HTTP/1.1" 200 191
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:16:02 +0900] "GET /yanolja/javascript/reservationList.js HTTP/1.1" 200 5061
+0:0:0:0:0:0:0:1 - - [01/Feb/2021:19:16:02 +0900] "GET /yanolja/css/reservationList/reservationList_secition.css HTTP/1.1" 200 3425
