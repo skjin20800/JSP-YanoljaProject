@@ -1,4 +1,5 @@
 
+
 # JSP-Yanolja-Project
 
 
@@ -56,10 +57,10 @@
 - Mysql
   
 ## 도식화
-  -  MVC 패턴
-![mvc](./mdimg/mvc.png)
+ ###  MVC 패턴
+![MVC](./mdimg/MVC.png)
 
- - Reflection 
+ ### Reflection 
       ![Reflection](./mdimg/Reflection.png)
 
 
@@ -74,35 +75,36 @@
 
 
 ###  1. Index페이지
-- 모텔 페이지이동
+### 모텔 페이지이동
  ![index_1](./mdimg/index_1.png)
  <br>
 
-- bootstrap - Carousel
+### bootstrap - Carousel
  ![carousel](./mdimg/carousel.png)
-<br>
 
-- JQuery
+
+### JQuery
  ![JQuery_1](./mdimg/JQuery_1.png)
  ![JQuery_2](./mdimg/JQuery_2.png)
 
 ### 2. 회원가입
 - 닉네임 중복체크 - AJAX  [닉네임 사용가능시 비활성화]
 - 필수 입력기능
-   - ![usernameCheck](./mdimg/usernameCheck.png)
+  ![usernameCheck](./mdimg/usernameCheck.png)
 
-### 3. 로그인
-- 로그인된 User 정보 Session에 저장
+## 3. 로그인
+### 로그인된 User 정보 Session에 저장
    - ![Login](./mdimg/Login.png)
 
-### 4. 헤더
-- 비로그인
-   - ![Login1](./mdimg/Login.png)
- <br>
-- 로그인
-  - ![Login2](./mdimg/Login.png)
+## 4. 헤더
+### 비로그인
+   ![Login1](./mdimg/Login1.png)
+
+
+### 로그인
+![Login2](./mdimg/Login2.png)
  
-### 5. 지역선택
+## 5. 지역선택
 -  전국 지역 리스트 - Bootstrapt-Dropdown 응용
 -  2개지역 구현
    - 서울 - 강남 역삼 삼성 논현
@@ -112,20 +114,19 @@
  ![Area_3](./mdimg/Area_3.png)
 
 
-### 6. 지역 모텔 리스트 
-- 체크인, 체크아웃 [bootstrap4 - datetimepicker]
- Linked Pickers
+## 6. 지역 모텔 리스트 
+- 체크인, 체크아웃 [bootstrap4 - datetimepicker]  
+  - Linked Pickers
  ![Calender_1](./mdimg/Calender_1.png)
  ![Calender_2](./mdimg/Calender_2.png)
   
-<br>
 
 - 모텔 리스트 출력
    - 해당지역- 모텔리스트 Select
   - Select수만큼 javascript를 이용해 출력
   ![MotelList](./mdimg/MotelList.png)
 
-### 7. 모텔 정보 출력
+## 7. 모텔 정보 출력
 - 6번의 정보 출력
     - 체크인, 체크아웃, 모텔정보 
    <br>
@@ -138,7 +139,7 @@
 - 체크인 불가능 날짜 룸 타입 미출력 [AJAX]
   - ![MotelInfo3](./mdimg/MotelInfo3.png)
 
-### 8. 예약 하기
+## 8. 예약 하기
  -  예약시 typelist테이블의 reservation = 'true'로 update
     - reservation테이블 레코드 생성
     
@@ -155,29 +156,28 @@
   - 세션의 ID와 예약자의 ID 일치시 예약취소(삭제) [AJAX]
       -  예약 취소시 typelist테이블의 reservation = 'false'로 update
          -   reservation 테이블 레코드 삭제 
-  -  ![reservationList_1](./mdimg/reservationList_1.png)
+   ![reservationList_1](./mdimg/reservationList_1.png)
   
   
-   예약리스트가 없을 때
-   ![reservationList_3](./mdimg/reservationList_3.png)
- 
- 
- - 예약 갯수만큼 출력가능
+### 예약리스트가 없을 때
+ ![reservationList_3](./mdimg/reservationList_3.png)
+
+ ### 예약 갯수만큼 출력가능
    ![reservationList_2](./mdimg/reservationList_2.png)
    
- - admin계정 모든 User 예약정보 출력
+### admin계정 모든 User 예약정보 출력
  ![reservationList_5](./mdimg/reservationList_5.png)
  
  
 ### 10. 예약 불가 typelist 미출력 
 - 모든방이 예약 가능할때
-  ![typelist_1](./mdimg/typelist_1.png)
+ ![typelist_1](./mdimg/typelist_1.png)
      
 - VIP방이 예약 max일때
-   ![typelist_2](./mdimg/typelist_2.png)
+ ![typelist_2](./mdimg/typelist_2.png)
    
 - 프리미엄방이 예약 max일때
-    ![typelist_3](./mdimg/typelist_3.png)  
+![typelist_3](./mdimg/typelist_3.png)  
 
 
  # DB 초기 데이터
