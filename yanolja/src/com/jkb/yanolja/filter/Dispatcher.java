@@ -42,10 +42,6 @@ public class Dispatcher implements Filter {
 		//확장자 추출
 		int pos = endPoint.lastIndexOf( "." );
 		String ext = endPoint.substring( pos + 1 );
-		System.out.println("엔드포인트" + endPoint);
-		
-	
-		
 		
 			if(ext.equals("css")||ext.equals("png")||ext.equals("js")) {
 				chain.doFilter(request, response);

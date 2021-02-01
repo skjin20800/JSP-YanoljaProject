@@ -22,8 +22,7 @@ public class UserDao {
 		Connection conn = DBConnection.getInstance();
 		PreparedStatement pstmt = null;
 		try {
-			System.out.println(dto.toString());
-			System.out.println("갯 유절네임"+dto.getUsername());
+			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getUsername());
 			pstmt.setString(2, dto.getPassword());
@@ -63,7 +62,7 @@ public class UserDao {
 				.email(rs.getString("email"))
 				.userRole(rs.getString("userRole"))
 				.build();
-						System.out.println("로그인 성공");
+						
 				return user;
 			}
 		}catch(Exception e) {

@@ -16,11 +16,11 @@ public class DBConnection {
 			Context envContext  = (Context)initContext.lookup("java:/comp/env");
 			DataSource ds = (DataSource)envContext.lookup("mysql/jkb");
 			Connection conn = ds.getConnection();
-			System.out.println("DB연결 성공");
+			
 			return conn;
 			
 		} catch (Exception e) {
-			System.out.println("DB연결 실패" + e.getMessage());
+			
 		}
 		return null;
 	}

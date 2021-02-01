@@ -15,7 +15,6 @@ import com.jkb.yanolja.domain.user.dto.LoginReqDto;
 import com.jkb.yanolja.service.MotelService;
 import com.jkb.yanolja.service.UserService;
 
-@WebServlet("/user")
 public class FrontController<T> {
 	
 UserService userService = new UserService();
@@ -68,10 +67,10 @@ List<T> respList = new ArrayList<>();
 	@RequestMapping("/loginReq")
 	public List<T> loginReq(LoginReqDto dto) {	
 		if(userService.로그인(dto) != null) {
-			System.out.println("성공 : " + userService.로그인(dto));
+		
 			respList.add((T) "/index.jsp");	
 		}else {
-			System.out.println("실패 : " + userService.로그인(dto));
+			
 			respList.add((T) "/userlogin.jsp");	
 		}
 		respList.add((T) userService.로그인(dto));
@@ -80,7 +79,7 @@ List<T> respList = new ArrayList<>();
 	
 	@RequestMapping("/user")
 	public void user() {
-		System.out.println("user() 함수 호출됨");
+	
 	}
 	
 	@RequestMapping("/usernameCheck")
@@ -97,7 +96,8 @@ List<T> respList = new ArrayList<>();
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/motelList_Seomyeon")
-	public List<T> motelList_Seomyeon() {	
+	public List<T> motelList_Seomyeon() {
+		
 		respList.add((T) "/motelList.jsp");
 		respList.add((T) motelService.motelSeomyeon());
 		return respList;
@@ -114,7 +114,7 @@ List<T> respList = new ArrayList<>();
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/motelDetail")
 	public List<T> motelDetail(MotelDetailDto dto) {
-		System.out.println(dto.toString());
+	
 
 		respList.add((T) "/motelInfo.jsp");
 		respList.add((T) motelService.motelDetail(dto));

@@ -22,7 +22,7 @@
         }
         function banner5__toggle() {
             toggle2 = !toggle2;
-            console.log(toggle2);
+            
             if (toggle2 == true) {
                 $("#banner5__page").text("1");
                 changeImage2B();
@@ -87,7 +87,7 @@
                 $("#banner4__price2").text("129,000");
                 $("#banner4__price3").text("89,000");
                 $("#banner4__price4").text("39,900");
-                console.log(toggle);
+                
             }
         }
         function changeImage2A() {
@@ -107,7 +107,7 @@
                 $("#banner4__price2").text("107,350");
                 $("#banner4__price3").text("76,000");
                 $("#banner4__price4").text("70,000");
-                console.log(toggle);
+                
             } else if (toggle == false) {
                 $("#banner4_img1").attr("src", "images/index/banner4_vila1.png");
                 $("#banner4_img2").attr("src", "images/index/banner4_vila2.png");
@@ -123,7 +123,7 @@
                 $("#banner4__price2").text("79,000");
                 $("#banner4__price3").text("102,000");
                 $("#banner4__price4").text("229,000");
-                console.log(toggle);
+                
             }
 
 
@@ -145,7 +145,7 @@
                 $("#banner4__price2").text("51,000");
                 $("#banner4__price3").text("115,500");
                 $("#banner4__price4").text("39,900");
-                console.log(toggle);
+                
             } else if (toggle == false) {
                 $("#banner4_img1").attr("src", "images/index/banner4_spar1.png");
                 $("#banner4_img2").attr("src", "images/index/banner4_spar2.png");
@@ -161,7 +161,7 @@
                 $("#banner4__price2").text("190,000");
                 $("#banner4__price3").text("120,000");
                 $("#banner4__price4").text("1,000");
-                console.log(toggle);
+                
             }
         }
         function changeImage4A() {
@@ -181,7 +181,7 @@
                 $("#banner4__price2").text("70,000");
                 $("#banner4__price3").text("38,000");
                 $("#banner4__price4").text("47,700");
-                console.log(toggle);
+                
             } else if (toggle == false) {
                 $("#banner4_img1").attr("src", "images/index/banner4_house1.png");
                 $("#banner4_img2").attr("src", "images/index/banner4_house2.png");
@@ -197,7 +197,7 @@
                 $("#banner4__price2").text("49,000");
                 $("#banner4__price3").text("200,000");
                 $("#banner4__price4").text("55,000");
-                console.log(toggle);
+                
 
             }
 

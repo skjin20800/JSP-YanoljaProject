@@ -12,8 +12,6 @@
       <res-auth>Container</res-auth>
   </resource-ref>
 		
-	
-	
  	<filter>
 		<filter-name>dispatcher</filter-name>
 		<filter-class>com.jkb.yanolja.filter.Dispatcher</filter-class>

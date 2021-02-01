@@ -20,7 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.jkb.yanolja.anno.RequestMapping;
+import com.jkb.yanolja.util.Script;
 import com.jkb.yanolja.web.FrontController;
 
 public class Dispatcher implements Filter {
@@ -32,24 +34,28 @@ public class Dispatcher implements Filter {
 
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
-		
+
 		//엔드포인트
 		String endPoint = request.getRequestURI().replaceAll(request.getContextPath(), "");
-		
+		System.out.println("엔드포인트");
 		
 		//확장자 추출
 		int pos = endPoint.lastIndexOf( "." );
 		String ext = endPoint.substring( pos + 1 );
-		System.out.println("엔드포인트" + endPoint);
 		
 			if(ext.equals("css")||ext.equals("png")||ext.equals("js")) {
 				chain.doFilter(request, response);
 			}
 					
-		if(endPoint.equals("/index.jsp")) {
+
+			
+		if(endPoint.equals("/index.jsp") ) {
 			RequestDispatcher dis = request.getRequestDispatcher("/index.jsp"); // 필터를 다시 안탐!!
 			dis.forward(request, response);	
 		}
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
 			
 		FrontController userController = new FrontController();
 		
@@ -57,11 +63,10 @@ public class Dispatcher implements Filter {
 		Method[] methods = userController.getClass().getDeclaredMethods(); // 그 파일에 메서드만!!
 
 
-		
+		// Ajax처리로직
 		if(endPoint.equals("/usernameCheck")){
 			BufferedReader br = request.getReader(); //아이디 중복체크
 			String usernameCheck = br.readLine(); //아이디 중복체크
-			System.out.println("버퍼값"+usernameCheck);
 			if(usernameCheck != null) {
 				int usernameResult = userController.usernameCheck(usernameCheck);
 				PrintWriter out = response.getWriter();
@@ -78,7 +83,29 @@ public class Dispatcher implements Filter {
 			session.invalidate();
 			response.sendRedirect("index.jsp");
 			return;
+		}else if(endPoint.equals("/motelInfoList")) {
+			BufferedReader br = request.getReader(); //아이디 중복체크
+			String motelInfoList =  br.readLine(); 
+			String []check = motelInfoList.split(":");
+			String checkin = check[0];
+			String motelId = check[1];
+			Gson gson = new Gson();
+			
+			String responseData = gson.toJson(userController.checklist_info(checkin, motelId).get(0));
+			Script.responseData(response, responseData);
+			
+			return;
+		}else if(endPoint.equals("/reserDelete")) {
+			BufferedReader br = request.getReader(); //아이디 중복체크
+			String resDelete =  br.readLine(); 
+			Gson gson = new Gson();
+			
+			
+			String responseData = gson.toJson(userController.reservationDeleteAjax(resDelete));
+			Script.responseData(response, responseData);
+			
 		}
+		//ajax처리 로직 끝
 		
 		
 		for (Method method : methods) {
@@ -99,11 +126,12 @@ public class Dispatcher implements Filter {
 					}
 					if(requestMapping.value().equals("/loginReq")) {
 						HttpSession session = request.getSession();
-						session.setAttribute("session", path.get(1)); // 인증주체		
-						response.sendRedirect("index.jsp");
+						session.setAttribute("session", path.get(1)); // 인증주체	
+						RequestDispatcher dis = request.getRequestDispatcher(path.get(0).toString()); // 필터를 다시 안탐!!
+						dis.forward(request, response);
 						break;
 					}
-					request.setAttribute("Date", path.get(1));
+					request.setAttribute("data", path.get(1));
 					RequestDispatcher dis = request.getRequestDispatcher(path.get(0).toString()); // 필터를 다시 안탐!!
 					dis.forward(request, response);
 				} catch (Exception e) {

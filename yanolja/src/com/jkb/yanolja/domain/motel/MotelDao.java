@@ -237,7 +237,7 @@ public class MotelDao {
 		
 		sb.append("SELECT m.id, t.id, m.motelName motelName, m.address, t.roomType, t.roomPrice, t.lodgmentPrice, t.roomNumber ");
 		sb.append("FROM motel m inner join typelist t on m.id = t.motelId ");
-		sb.append("where t.id= ? ");
+		sb.append("WHERE t.id= ? ");
 		String sql = sb.toString();	
 		Connection conn = DBConnection.getInstance();
 		PreparedStatement pstmt = null;
@@ -279,7 +279,7 @@ public class MotelDao {
 		  
 		sb.append("SELECT  id, roomType, roomPrice, lodgmentPrice, roomNumber ");
 		sb.append("FROM typelist ");
-		sb.append("where reservation = 'false' AND motelId=? AND roomType = ? ");
+		sb.append("WHERE reservation = 'false' AND motelId=? AND roomType = ? ");
 		String sql = sb.toString();	
 		Connection conn = DBConnection.getInstance();
 		PreparedStatement pstmt = null;
@@ -358,7 +358,7 @@ public class MotelDao {
 	
 	
 	public Motel findBymotelId(String motelId) {
-		String sql = "select id, motelName, motelPic, motelInfoPic ,motelInfo,address,roomPrice,lodgmentPrice,star from motel WHERE id = ?";
+		String sql = "SELECT id, motelName, motelPic, motelInfoPic ,motelInfo,address,roomPrice,lodgmentPrice,star FROM motel WHERE id = ?";
 		Connection conn = DBConnection.getInstance();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -443,11 +443,12 @@ public class MotelDao {
 
 	
 	public List<Motel> findBySeomyeon() {
-		String sql = "select id, motelName, motelPic, motelInfo,address,roomPrice,lodgmentPrice,star from motel WHERE REGEXP_LIKE(motelName, '서면|초읍|양정')";
-		Connection conn = DBConnection.getInstance();
+		String sql = "SELECT id, motelName, motelPic, motelInfo,address,roomPrice,lodgmentPrice,star FROM motel WHERE REGEXP_LIKE(motelName, '서면|초읍|양정')";
+		Connection conn = DBConnection.getInstance();		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Motel> motelList = new ArrayList<>();
+		
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -465,6 +466,7 @@ public class MotelDao {
 						.star(rs.getString("star"))
 						.build();				
 				motelList.add(motel);
+				
 			}
 	return motelList;		
 	
@@ -479,7 +481,7 @@ public class MotelDao {
 	}
 	
 	public List<Motel> findByGangnam() {
-		String sql = "select id, motelName, motelPic, motelInfo,address,roomPrice,lodgmentPrice,star from motel WHERE REGEXP_LIKE(motelName, '강남|삼성|역삼|논현|선릉')";
+		String sql = "SELECT id, motelName, motelPic, motelInfo,address,roomPrice,lodgmentPrice,star FROM motel WHERE REGEXP_LIKE(motelName, '강남|삼성|역삼|논현|선릉')";
 		Connection conn = DBConnection.getInstance();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

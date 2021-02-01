@@ -17,7 +17,7 @@
         <div class="section1__main ">
             <div></div>
             <div class="section1__list">
-                <div class="section1__title ">변수/서면/양정/초읍/부산/시민공원</div>
+                <div class="section1__title ">${data[0].motelName}</div>
                 <div class="section1__info mt10 ">
                     <!--캘린더-->     
                     
