@@ -162,7 +162,7 @@
    <br>
    
 ### 체크인 가능날짜 룸 타입 출력 [AJAX]
-![MotelInfo1](./mdimg/MotelInfo1.png)
+![MotelInfo2](./mdimg/MotelInfo2.png)
 <br>
 <br>
   
@@ -213,16 +213,17 @@
  <br>
  
 ## 10. 예약 불가 typelist 미출력 
-- 모든방이 예약 가능할때
+### 모든방이 예약 가능할때
+
  ![typelist_1](./mdimg/typelist_1.png)
 <br>
 
      
-- VIP방이 예약 max일때
+### VIP방이 예약 max일때
  ![typelist_2](./mdimg/typelist_2.png)
 <br>
    
-- 프리미엄방이 예약 max일때
+### 프리미엄방이 예약 max일때
 ![typelist_3](./mdimg/typelist_3.png)  
 
 <br>
