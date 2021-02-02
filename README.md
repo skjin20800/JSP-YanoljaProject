@@ -58,8 +58,9 @@
 - Docker
 - tomcat
 - Mysql
-  ![AWS](./mdimg/AWS.png)
-  ![docker](./mdimg/docker.png)
+
+![AWS](./mdimg/AWS.png)
+![docker](./mdimg/docker.png)
 
 <br>
 <br>
