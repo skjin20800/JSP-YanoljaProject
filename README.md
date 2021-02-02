@@ -20,7 +20,8 @@
  - DB 초기 데이터
  -  블로그 주소
   
-# 홈페이지 시연영상
+# 홈페이지 시연영상 (그림을 클릭하세요)
+[![Video Label](http://img.youtube.com/vi/kc0yDIMrTlE/0.jpg)](https://youtu.be/kc0yDIMrTlE)
 
 
 # 사용 기능
@@ -53,9 +54,11 @@
 ## 배포
 - AWS
 - ubuntu
+- Putty
 - Docker
 - tomcat
 - Mysql
+
   
 ## 도식화
  ###  MVC 패턴
